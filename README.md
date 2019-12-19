@@ -7,3 +7,8 @@ https://github.com/mkleehammer/pyodbc
 Should I create a class for each post? 
 3. foreign.py: Checks each post segment and tag their language. 
 4. export2csv.py: export all segments to csv
+
+## For v0.1
+1. Get posts from csv. csv.py for parsing csv, post.py - post class - for each post.
+2. Check post lang. foreign.py
+3. Print to csv file: page link and number of foreign words detected. Runs foreign.py on each post class.z
