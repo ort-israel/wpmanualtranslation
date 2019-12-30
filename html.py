@@ -8,11 +8,11 @@ def get_sections(str_content):
     pass
 
 
-def strip_html(str_section):
+def strip_html(string_to_strip):
     """
-    Strip html tags from the sections
-    :param str_section: post section.
-    :return: post section with non relevant html tags.
+    Strip html tags from string
+    :param string_to_strip: target string.
+    :return: string without non relevant html tags.
     Discarded tags: iframe, h5p ([h5p id="##"]), img
     """
     pass

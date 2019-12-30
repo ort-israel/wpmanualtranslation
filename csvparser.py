@@ -1,14 +1,25 @@
 # Fields are separated by ;="
 from csv import reader
+from post import Post
 
 
-# file name. Should be in the same dir
-str_csv_file_name = "wp_posts_unicode.csv"
+def csv_reader(csv_file_name):
+    """
+    Pasrses the csv file and returns a list of post objects
+    :param csv_file_name: csv file name. should be in the same dir
+    :return: list of posts
+    """
+    list_of_post = list()
 
-with open(str_csv_file_name, newline='', encoding='utf_8') as posts:
-    posts_reader = reader(posts, delimiter='‡', quotechar='|')
-    # To get rid of the first line: ['ID', 'post_content', 'post_title', 'post_excerpt', 'post_name', 'guid']
-    posts_reader.__next__()
-    # each row is an array. So a[0] will give the post id and so one. Use a loop to iterate
-    # Add all this code to a function that returns a post class
+    with open(csv_file_name, newline='', encoding='utf_8') as posts:
+        posts_reader = reader(posts, delimiter='‡', quotechar='|')
+        # To get rid of the first line: ['ID', 'post_content', 'post_title', 'post_excerpt', 'post_name', 'guid']
+        posts_reader.__next__()
+        # Create a post class for each line and push it to the return list
+        for current_post in posts_reader:
+            post_obj = Post(current_post[0], current_post[1], current_post[2],
+                            current_post[3], current_post[4], current_post[5])
+            list_of_post.append(post_obj)
 
+    # Return the list
+    return list_of_post
