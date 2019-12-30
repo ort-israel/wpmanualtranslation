@@ -1,5 +1,5 @@
 # Imports
-from html import strip_html
+from htmlparser import *
 
 
 # Post class
@@ -18,4 +18,8 @@ class Post:
         self.link = str_guid
 
         # Strip unneeded html tags from post content
-        self.content = strip_html(self.content)
+        html_remover = MyHTMLParser()
+        html_remover.feed(self.content)
+        self.content = " ".join(html_remover.html_text)
+
+        # Strip remaining non HTML tags (such as [h5p id="#"])
