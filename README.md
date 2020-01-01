@@ -11,5 +11,5 @@ Should I create a class for each post?
 ## For v0.1
 0. Read Settings file. settings.py. V function was written
 1. Get posts from csv. csv.py for parsing csv, post.py - post class - for each post. post.py is done V
-2. Check post lang. foreign.py <=====
-3. Print to csv file: page link and number of foreign words detected. Runs foreign.py on each post class. Part of main.
+2. Check post lang. Assume Hebrew is needed. Returns one list with all text and hebrew marked and one with just hebrew foreign.py <=====
+3. Print to csv file: page link and number of foreign words detected. Runs foreign.py on each post class. Part of main. 
