@@ -14,6 +14,16 @@ class MyHTMLParser(HTMLParser):
         """
         self.html_text.append(data + " ")
 
+    def handle_starttag(self, tag, attrs):
+        """
+
+        :param tag:
+        :param attrs:
+        :return: Appends img tags to html_txt
+        """
+        if tag == "img":
+            self.html_text.append("\n****Image ****\n")
+
 
 def square_stripper(data):
     """

@@ -1,5 +1,6 @@
 # Imports
 from htmlparser import *
+from re import sub
 
 
 # Post class
@@ -20,6 +21,14 @@ class Post:
         # Strip unneeded html tags from post content
         html_remover = MyHTMLParser()
         html_remover.feed(self.content)
-        self.content = " ".join(html_remover.html_text)
+
+        segments_list = list()
 
         # Strip remaining non HTML tags (such as [h5p id="#"])
+        with html_remover.html_text as item:
+            temp = sub(r" ?\[[^)]+\]", "****h5p item ****", item)
+            segments_list.append(temp)
+
+        # Put the result in self.content and close the parser
+        self.content = " ".join(segments_list)
+        html_remover.close()
