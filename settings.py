@@ -1,5 +1,13 @@
 def read_settings():
-    """Read settings from the config file and returns the setting as dictionary"""
+    """Read settings from the config file and returns the setting as dictionary
+    List of possible settings:
+    csv_name: csv file name
+    output: output file name
+    db_user: db username
+    db_pass: db password
+    db_port: db port
+    db_link: db link
+    """
 
     settings_dict = dict()
 
@@ -10,7 +18,7 @@ def read_settings():
                 line = line.strip("\n")
 
                 # Splitting on :=
-                key, value = line.strip(":=")
+                key, value = line.split(":=")
 
     return settings_dict
 
