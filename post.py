@@ -12,7 +12,7 @@ class Post:
     def __init__(self, num_id, str_content, str_title, str_excerpt, str_name, str_guid):
         # Here be all class vars
         self.id = num_id
-        self.content = str_content
+        self.content = list()
         self.title = str_title
         self.excerpt = str_excerpt
         self.name = str_name
@@ -20,15 +20,14 @@ class Post:
 
         # Strip unneeded html tags from post content
         html_remover = MyHTMLParser()
-        html_remover.feed(self.content)
-
-        segments_list = list()
+        html_remover.feed(str_content)
 
         # Strip remaining non HTML tags (such as [h5p id="#"])
         with html_remover.html_text as item:
             temp = sub(r" ?\[[^)]+\]", "****h5p item ****", item)
-            segments_list.append(temp)
+            self.content.append(temp)
 
         # Put the result in self.content and close the parser
-        self.content = " ".join(segments_list)
+        # self.content = " ".join(segments_list)
+        # I think that a list of string is better as it's my only way to separate the content into segments.
         html_remover.close()
