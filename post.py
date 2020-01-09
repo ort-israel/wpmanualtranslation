@@ -1,6 +1,7 @@
 # Imports
 from htmlparser import *
 from re import sub
+import foreign
 
 
 # Post class
@@ -17,6 +18,8 @@ class Post:
         self.excerpt = str_excerpt
         self.name = str_name
         self.link = str_guid
+        self.small_list = list()
+        self.complete_list = list()
 
         # Strip unneeded html tags from post content
         html_remover = MyHTMLParser()
@@ -31,3 +34,8 @@ class Post:
         # self.content = " ".join(segments_list)
         # I think that a list of string is better as it's my only way to separate the content into segments.
         html_remover.close()
+
+        # Mark foreign words
+        with self.content as post_text:
+            words = foreign.word_breaker(post_text)
+        self.complete_list, self.small_list = foreign.lang_marker(words, "‡‡‡‡", "", "he")
