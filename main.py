@@ -15,3 +15,7 @@ def main():
 
     # Send posts to the formatter
     outputcreator.text_output(list_of_posts, "Money")
+
+
+if __name__ == "__main__":
+    main()

@@ -19,6 +19,7 @@ def read_settings():
 
                 # Splitting on :=
                 key, value = line.split(":=")
+                settings_dict[key] = value
 
     return settings_dict
 
