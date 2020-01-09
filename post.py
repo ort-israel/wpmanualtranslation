@@ -12,14 +12,14 @@ class Post:
 
     def __init__(self, num_id, str_content, str_title, str_excerpt, str_name, str_guid):
         # Here be all class vars
-        self.id = num_id
-        self.content = list()
-        self.title = str_title
-        self.excerpt = str_excerpt
-        self.name = str_name
-        self.link = str_guid
-        self.small_list = list()
-        self.complete_list = list()
+        self.id = num_id  # ID
+        self.content = list()  # Post content
+        self.title = str_title  # Post title
+        self.excerpt = str_excerpt  # Post excerpt
+        self.name = str_name  # Post name
+        self.link = str_guid  # Post link
+        self.content_small_list = list()
+        self.content_complete_list = list()
 
         # Strip unneeded html tags from post content
         html_remover = MyHTMLParser()
@@ -38,4 +38,4 @@ class Post:
         # Mark foreign words
         with self.content as post_text:
             words = foreign.word_breaker(post_text)
-        self.complete_list, self.small_list = foreign.lang_marker(words, "‡‡‡‡", "", "he")
+        self.content_complete_list, self.content_small_list = foreign.lang_marker(words, "‡‡‡‡ ", " ‡‡‡‡", "he")
