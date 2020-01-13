@@ -22,16 +22,7 @@ class MyHTMLParser(HTMLParser):
         :return: Appends img tags to html_txt
         """
         if tag == "img":
-            self.html_text.append("\n****Image ****\n")
-
-
-def square_stripper(data):
-    """
-    Strips bbcode style tags from the text
-    :param data: string to strip
-    :return: string without bbcode style tags
-    """
-    pass
+            self.html_text.append("ň****Image****ň")
 
 
 def get_sections(str_content):
@@ -42,17 +33,6 @@ def get_sections(str_content):
     :returns: list of sections
     """
     pass
-
-
-def strip_html(string_to_strip):
-    """
-    Strip html tags from string
-    :param string_to_strip: target string.
-    :return: string without non relevant html tags.
-    Discarded tags: iframe, h5p ([h5p id="##"]), img
-    """
-    pass
-
 
 
 

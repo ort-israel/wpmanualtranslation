@@ -18,11 +18,11 @@ def csv_reader(csv_file_name):
         # Create a post class for each line and push it to the return list
         for current_post in posts_reader:
             # Change ř to \r . Then ň to \n
-            content = current_post[1]
-            content = content.replace("ř", "\r")
-            content = content.replace("ň", "\n")
+            # content = current_post[1]
+            # content = content.replace("ř", "\r")
+            # content = content.replace("ň", "\n")
 
-            post_obj = Post(current_post[0], content, current_post[2],
+            post_obj = Post(current_post[0], current_post[1], current_post[2],
                             current_post[3], current_post[4], current_post[5])
             list_of_post.append(post_obj)
 

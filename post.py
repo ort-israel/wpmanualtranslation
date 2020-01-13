@@ -26,16 +26,15 @@ class Post:
         html_remover.feed(str_content)
 
         # Strip remaining non HTML tags (such as [h5p id="#"])
-        with html_remover.html_text as item:
-            temp = sub(r" ?\[[^)]+\]", "****h5p item ****", item)
+        for item in html_remover.html_text:
+            temp = sub(r" ?\[[^)]+\]", "****h5p_item****", item)
             self.content.append(temp)
 
-        # Put the result in self.content and close the parser
-        # self.content = " ".join(segments_list)
-        # I think that a list of string is better as it's my only way to separate the content into segments.
         html_remover.close()
 
+        words = list()
+
         # Mark foreign words
-        with self.content as post_text:
-            words = foreign.word_breaker(post_text)
+        for post_text in self.content:
+            words += foreign.word_breaker(post_text)
         self.content_complete_list, self.content_small_list = foreign.lang_marker(words, "‡‡‡‡ ", " ‡‡‡‡", "he")

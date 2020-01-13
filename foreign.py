@@ -1,4 +1,5 @@
 from guess_language import guess_language
+import enchant
 
 
 def word_breaker(str_sentence: str) -> list:
@@ -26,13 +27,18 @@ def lang_marker(list_of_words: list, str_start_mark: str, str_end_mark: str, lan
 
     # Check all words
     for str_cell in list_of_words:
+        # Adding /r and /n
+        # Change ř to \r . Then ň to \n
+        str_text = str_cell.replace("ř", "\r")
+        str_text = str_text.replace("ň", "\n")
+
         # If hebrew add marking.
-        if guess_language(str_cell) == lang:
+        if guess_language(str_text) == lang:
             # Note: In python only functions, modules and classes have scope
-            temp = str_start_mark + str_cell + str_end_mark
-            small_list.append(str_cell)
+            temp = str_start_mark + str_text + str_end_mark
+            small_list.append(str_text)
         else:
-            temp = str_cell
+            temp = str_text
 
         complete_list.append(temp)
 

@@ -14,19 +14,19 @@ def text_output(list_of_posts: list, folder_name: str):
     # Check the folder exists
     # Open the small list file for writing and clear it
     folder_maker(folder_name)
-    small_file = open("00"+folder_name, "w")
+    small_file = open("00"+folder_name+".txt", "w")
 
     # Iterate on posts, create files for the complete list and append for the small list
-    with list_of_posts as single_post:
+    for single_post in list_of_posts:
         # Complete list
-        complete_file = open(single_post.title, "w")
+        complete_file = open(single_post.title + ".txt", "w")
         complete_file.write("--------------------------------------------------------------------------------- \n")
         complete_file.write("Post Title: ... " + single_post.title + "\n")
         complete_file.write("Post Name: ... " + single_post.name + "\n")
         complete_file.write("Post Link: ... " + single_post.link + "\n")
         # Post excerpt is missing. For future versions
         complete_file.write("--------------------------------------------------------------------------------- \n \n")
-        complete_file.write(" ".join(single_post.content_complete_list()))
+        complete_file.write(" ".join(single_post.content_complete_list))
 
         # Close the complete file
         complete_file.close()
@@ -65,4 +65,7 @@ def folder_maker(folder_name: str):
     os.chdir(folder_name)
 
     # Remove simple list file
-    os.remove("00"+folder_name)
+    try:
+        os.remove("00"+folder_name)
+    except FileNotFoundError:
+        pass
