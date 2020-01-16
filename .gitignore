@@ -4,3 +4,5 @@ wp_posts_unicode.csv
 .gitignore
 wp_posts_unicode.csv.back
 Money
+config.txt
+__pycache__
