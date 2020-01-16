@@ -1,3 +1,6 @@
 .idea/
 /venv/
 wp_posts_unicode.csv
+.gitignore
+wp_posts_unicode.csv.back
+Money
