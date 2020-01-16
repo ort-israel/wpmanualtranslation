@@ -1,6 +1,6 @@
 # Goes around the "The reader is hard-coded to recognise either '\r' or '\n' as end-of-line, and ignores lineterminator. This behavior may change in the future." https://docs.python.org/3/library/csv.html
-# Line delimeter is † 
-# Field seperator is ‡
+# Line delimiter is † 
+# Field separator is ‡
 # First I'll change \r to ř . Then \n to ň
 # Thanks to http://www.fileformat.info/info/charset/UTF-8/list.htm
 # The python script will have to **reverse** that (in the csv reader)
