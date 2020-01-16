@@ -16,7 +16,7 @@ Should I create a class for each post?
 
 ## For v0.2
 1. Excerpt - Done, media, tags and h5p
-2. Why ****Image**** Disappears after guess lang? on short list only
+2. Why \*\*\*\*Image\*\*\*\* Disappears after guess lang? on short list only
 3. Why arabic is not recognised? Maybe use this: Should ask Moshe - Sent mail. Waiting for answer 
     https://stackoverflow.com/questions/42510056/detect-the-writing-system-of-a-string-in-python/42510267
 4. Settings: Done
