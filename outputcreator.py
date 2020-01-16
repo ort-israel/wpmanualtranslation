@@ -24,7 +24,9 @@ def text_output(list_of_posts: list, folder_name: str):
         complete_file.write("Post Title: ... " + single_post.title + "\n")
         complete_file.write("Post Name: ... " + single_post.name + "\n")
         complete_file.write("Post Link: ... " + single_post.link + "\n")
-        # Post excerpt is missing. For future versions
+        complete_file.write("--------------------------------------------------------------------------------- \n \n")
+        complete_file.write("Post Excerpt: \n")
+        complete_file.write(" ".join(single_post.excerpt_complete_list))
         complete_file.write("--------------------------------------------------------------------------------- \n \n")
         complete_file.write(" ".join(single_post.content_complete_list))
 
@@ -38,7 +40,7 @@ def text_output(list_of_posts: list, folder_name: str):
         small_file.write("Post Title: ... " + single_post.title + "\n")
         small_file.write("Post Name: ... " + single_post.name + "\n")
         small_file.write("Post Link: ... " + single_post.link + "\n")
-        # Post excerpt is missing. For future versions
+        small_file.write("Post Excerpt: ... " + " ".join(single_post.excerpt_small_list) + "\n")
         small_file.write("--------------- \n \n")
         small_file.write(" ".join(single_post.content_small_list) + "\n")
         small_file.write("************************************************************************************ \n")
@@ -58,8 +60,8 @@ def folder_maker(folder_name: str):
         os.mkdir(folder_name)
     except FileExistsError:
         pass
-    else:
-        print("Fatal error creating the folder")
+    # else:
+        # print("Fatal error creating the folder")
 
     # Change path to that dire
     os.chdir(folder_name)
