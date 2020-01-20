@@ -26,3 +26,6 @@ Should I create a class for each post?
 3. Why arabic is not recognised? Maybe use this: Should ask Moshe - Sent mail. Waiting for answer 
     https://stackoverflow.com/questions/42510056/detect-the-writing-system-of-a-string-in-python/42510267
 4. Settings: Done
+
+## For v0.3
+1. Convert pages and post to use inheritance. 

@@ -7,3 +7,4 @@
 # v0.2
 1. Less hardcoded settings: string marking, output folder name, 
 2. Excerpt support
+3. Media, tags and h5p support.
