@@ -19,7 +19,7 @@ Should I create a class for each post?
 3. Print to csv file: page link and number of foreign words detected. Runs foreign.py on each post class. Part of main. 
 
 ## For v0.2
-1. Excerpt - Done, pages (Same as posts) - Done, media (Class missing), tags (class is Done) and h5p (Class missing). <=======
+1. Excerpt - Done, pages (Same as posts) - Done, media (Class half written), tags (class is Done) and h5p (Class missing). <=======
     When classes are done add print to the outputcreator.py
     Maybe post_type = "nav_menu_item" in wp_posts?
 2. Why \*\*\*\*Image\*\*\*\* Disappears after guess lang? on short list only
