@@ -32,4 +32,3 @@ class Tag(BaseItem):
         # Mark foreign words in the name
         self.name_complete_list, self.name_small_list = \
             foreign.content_lang_marker(self.filtered_name, str_mark_start, str_mark_end, "he")
-
