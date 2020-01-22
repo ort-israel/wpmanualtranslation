@@ -1,7 +1,8 @@
 def read_settings():
     """Read settings from the config file and returns the setting as dictionary
     List of possible settings:
-    csv_name: csv file name
+    posts_csv_name: post and pages csv file name
+    media_csv_name: media csv file name
     db_user: db username
     db_pass: db password
     db_port: db port

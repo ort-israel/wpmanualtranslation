@@ -7,7 +7,7 @@ import foreign
 # Post class
 class Post:
     """
-    Holds a single post data
+    Holds a single post, page or media data
     """
 
     def __init__(self, num_id: str, str_content: str, str_title: str, str_excerpt: str, str_name: str, str_guid: str,
