@@ -3,8 +3,10 @@ from html.parser import HTMLParser
 
 class MyHTMLParser(HTMLParser):
     """This is my implementation of HTMLParser. Ignores everything but data"""
-    # In this list all the data will be saved
-    html_text = list()
+    def __init__(self):
+        # In this list all the data will be saved
+        super().__init__()
+        self.html_text = list()
 
     def handle_data(self, data):
         """
@@ -12,7 +14,7 @@ class MyHTMLParser(HTMLParser):
         :param data: Non html string
         :return: Appends the non html data to html_text
         """
-        self.html_text.append(data + " ")
+        self.html_text.append(data)
 
     def handle_starttag(self, tag, attrs):
         """

@@ -15,15 +15,18 @@ class Tag(BaseItem):
         self.filtered_name = list()  # Name without number, split by -
         # str_slug is not a real url. Contains char codes %##. Probably useless
         self.type = str_type  # Item type (tag, category or nav menu item)
-        self.description = super().content.split()  # Item description. Split on spaces and line break
+        self.description = list()  # Item description. Split on spaces and line break
         self.desc_small_list = list()
         self.desc_complete_list = list()
         self.name_small_list = list()
         self.name_complete_list = list()
 
+        # Split content by spaces
+        for str_item in self.content:
+            self.description.extend(str_item.split(" "))
         # Filter item name
         # https://docs.python.org/3/library/re.html
-        self.filtered_name = sub(r"[0-9]+?", "", super().name).split("-")
+        self.filtered_name = sub(r"[0-9]+?", "", self.name).split("-")
 
         # Mark foreign words in descriptions
         self.desc_complete_list, self.desc_small_list = \

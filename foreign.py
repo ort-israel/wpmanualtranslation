@@ -8,7 +8,7 @@ def word_breaker(str_sentence: str) -> list:
     :param str_sentence: string to break
     :return: list of words
     """
-    return str_sentence.split()
+    return str_sentence.split(" ")
 
 
 def content_lang_marker(list_of_words: list, str_start_mark: str, str_end_mark: str, lang: str):

@@ -45,8 +45,8 @@ def tag_csv_reader(csv_file_name: str, str_mark_start: str, str_mark_end: str):
         # Create a tag class for each line and push it to the return list
         # num_id: str, str_name: str, str_slug: str, str_type: str, str_desc: str
         for current_tag in tags_reader:
-            tag_obj = Post(current_tag[0], current_tag[1], current_tag[2], current_tag[3],
-                           current_tag[4], str_mark_start, str_mark_end)
+            tag_obj = Tag(current_tag[0], current_tag[1], current_tag[2], current_tag[3],
+                          current_tag[4], str_mark_start, str_mark_end)
             list_of_tags.append(tag_obj)
 
     # Return the list
