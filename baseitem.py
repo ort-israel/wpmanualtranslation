@@ -10,6 +10,7 @@ class BaseItem:
         # Class vars
         self.id = str_id
         self.name = str_name
+        # Add marked name support
         self.content = list()
         self.link = str_link
 

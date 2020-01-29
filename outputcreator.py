@@ -103,6 +103,39 @@ def post_text_output(list_of_items: list, folder_name: str, str_type: str):
     return_to_root()
 
 
+def nav_text_output(list_of_items: list, folder_name: str):
+    """
+    Prints the menu items to a single file (Only item name, title and id are relevant)
+    :param list_of_items: list of menu item. Type is post class
+    :param folder_name: Project name
+    :return: Prints everything to a file called nav_menu_items.txt
+    """
+    # Check the folder exists
+    # Open the small list file for writing and clear it
+    folder_maker(folder_name)
+    small_file = open("00" + folder_name + "-" + "nav_menu_items" + ".txt", "w")
+
+    # Iterate on posts, create files for the complete list and append for the small list
+    for single_item in list_of_items:
+        # Small file
+        small_file.write("************************************************************************************ \n")
+        small_file.write("************************************************************************************ \n")
+        small_file.write("--------------- \n")
+        small_file.write("Title: ... " + single_item.title + "\n")
+        # Add marked title
+        small_file.write("Name: ... " + single_item.name + "\n")
+        # Add marked name
+        small_file.write("Link: ... " + single_item.link + "\n")  # Do I really need this?
+        small_file.write("************************************************************************************ \n")
+        small_file.write("************************************************************************************ \n")
+
+    # Close the small file
+    small_file.close()
+
+    # Return to root folder
+    return_to_root()
+
+
 def folder_maker(folder_name: str):
     """
     Check if folder_name exist. If not, creates it. Note: FoLder != folder

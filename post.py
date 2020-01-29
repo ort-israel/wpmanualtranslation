@@ -16,8 +16,10 @@ class Post:
         self.id = num_id  # ID
         self.content = list()  # Post content
         self.title = str_title  # Post title
+        self.title_small_list = list()
         self.excerpt = str_excerpt  # Post excerpt
         self.name = str_name  # Post name
+        self.name_small_list = list()
         self.link = str_guid  # Post link
         self.content_small_list = list()
         self.content_complete_list = list()
@@ -47,4 +49,14 @@ class Post:
 
         # Mark foreign words in excerpt
         self.excerpt_complete_list, self.excerpt_small_list = \
+            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "he")
+
+        # Mark foreign words in name
+        words = foreign.word_breaker(self.name)
+        to_discard, self.name_small_list = \
+            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "he")
+
+        # Mark foreign words in title
+        words = foreign.word_breaker(self.title)
+        to_discard, self.title_small_list = \
             foreign.content_lang_marker(words, str_mark_start, str_mark_end, "he")

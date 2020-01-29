@@ -20,14 +20,12 @@ Should I create a class for each post?
 
 ## For v0.2
 1. Excerpt - Done, pages (Same as posts) - Done, media (uses post class), tags (Done)
-    and h5p (Class missing, see onenote). <=======
     When classes are done add print to the outputcreator.py
-    Maybe post_type = "nav_menu_item" in wp_posts?
-2. Why \*\*\*\*Image\*\*\*\* Disappears after guess lang? on short list only
-3. Why arabic is not recognised? Maybe use this: Should ask Moshe - Sent mail. Waiting for answer 
-    https://stackoverflow.com/questions/42510056/detect-the-writing-system-of-a-string-in-python/42510267
-4. Settings: Done
-5. Maybe Mark string in the name too (for Post)?
+    Maybe post_type = "nav_menu_item" in wp_posts? <=======
+2. Why arabic is not recognised? Maybe use this: Should ask Moshe - Sent mail. Waiting for answer 
+    https://stackoverflow.com/questions/42510056/detect-the-writing-system-of-a-string-in-python/42510267 <======
+3. Settings: Done
+4. Maybe Mark string in the name too (for Post and base item)?
 
 ## For v0.3
 1. Convert pages and post to use inheritance. 
@@ -35,3 +33,6 @@ Should I create a class for each post?
     Refactor htmlparser 
 3. Other output format: csv and html
 4. Rest of the hardcoded settings ("he")
+
+## For v0.4
+1. h5p?

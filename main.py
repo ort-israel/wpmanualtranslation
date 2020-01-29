@@ -25,6 +25,11 @@ def main():
                                             settings_dict["mark_start"],
                                             settings_dict["mark_end"])
 
+    # Get list of menu items
+    list_of_nav = csvparser.post_csv_reader(settings_dict["nav_csv_name"],
+                                            settings_dict["mark_start"],
+                                            settings_dict["mark_end"])
+
     # Send items to the formatter
     outputcreator.post_text_output(list_of_posts, settings_dict["project"], "Posts and Pages")
     outputcreator.post_text_output(list_of_media, settings_dict["project"], "Media")
