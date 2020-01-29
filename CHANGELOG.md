@@ -9,3 +9,5 @@
 2. Excerpt support
 3. Media, Pages, tags and h5p support.
 4. Redesign: Base class for item storage. Tags and Media inherit it. Post and pages in the future.
+5. Nav menu item support
+6. Marking for name and title (Post, media and tags)

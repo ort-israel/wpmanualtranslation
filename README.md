@@ -21,7 +21,7 @@ Should I create a class for each post?
 ## For v0.2
 1. Excerpt - Done, pages (Same as posts) - Done, media (uses post class), tags (Done)
     When classes are done add print to the outputcreator.py
-    Maybe post_type = "nav_menu_item" in wp_posts? <=======
+    Maybe post_type = "nav_menu_item" in wp_posts? Check if working <=======
 2. Why arabic is not recognised? Maybe use this: Should ask Moshe - Sent mail. Waiting for answer 
     https://stackoverflow.com/questions/42510056/detect-the-writing-system-of-a-string-in-python/42510267 <======
 3. Settings: Done
