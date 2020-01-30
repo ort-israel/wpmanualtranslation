@@ -72,8 +72,10 @@ def post_text_output(list_of_items: list, folder_name: str, str_type: str):
         complete_file = open(single_item.title + ".txt", "w")
         complete_file.write("--------------------------------------------------------------------------------- \n")
         complete_file.write("Title: ... " + single_item.title + "\n")
+        complete_file.write("Title foreign parts: ... " + " ".join(single_item.title_small_list) + "\n")
         complete_file.write("Name: ... " + single_item.name + "\n")
-        complete_file.write("Type: ... " + single_item.link + "\n")
+        complete_file.write("Name foreign parts: ... " + " ".join(single_item.name_small_list) + "\n")
+        complete_file.write("Link: ... " + single_item.link + "\n")
         complete_file.write("--------------------------------------------------------------------------------- \n \n")
         complete_file.write("Excerpt: \n")
         complete_file.write(" ".join(single_item.excerpt_complete_list))
@@ -88,7 +90,9 @@ def post_text_output(list_of_items: list, folder_name: str, str_type: str):
         small_file.write("************************************************************************************ \n")
         small_file.write("--------------- \n")
         small_file.write("Title: ... " + single_item.title + "\n")
+        small_file.write("Title foreign parts: ... " + " ".join(single_item.title_small_list) + "\n")
         small_file.write("Name: ... " + single_item.name + "\n")
+        small_file.write("Name foreign parts: ... " + " ".join(single_item.name_small_list) + "\n")
         small_file.write("Link: ... " + single_item.link + "\n")
         small_file.write("Excerpt: ... " + " ".join(single_item.excerpt_small_list) + "\n")
         small_file.write("--------------- \n \n")
@@ -122,10 +126,9 @@ def nav_text_output(list_of_items: list, folder_name: str):
         small_file.write("************************************************************************************ \n")
         small_file.write("--------------- \n")
         small_file.write("Title: ... " + single_item.title + "\n")
-        # Add marked title
+        small_file.write("Marked Title: ... " + " ".join(single_item.title_small_list) + "\n")
         small_file.write("Name: ... " + single_item.name + "\n")
-        # Add marked name
-        small_file.write("Link: ... " + single_item.link + "\n")  # Do I really need this?
+        small_file.write("Marked Name: ... " + " ".join(single_item.name_small_list) + "\n")
         small_file.write("************************************************************************************ \n")
         small_file.write("************************************************************************************ \n")
 

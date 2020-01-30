@@ -34,6 +34,7 @@ def main():
     outputcreator.post_text_output(list_of_posts, settings_dict["project"], "Posts and Pages")
     outputcreator.post_text_output(list_of_media, settings_dict["project"], "Media")
     outputcreator.tag_text_output(list_of_tags, settings_dict["project"])
+    outputcreator.nav_text_output(list_of_nav, settings_dict["project"])
 
     # Print done
     print(settings_dict["project"] + " is Done!")
