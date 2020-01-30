@@ -1,6 +1,7 @@
 # wpmanualtranslation
 Locates foreign strings in Worpress sites. This program doesn't access the db directly, 
 instead it reads the data from csv files. Required sql queries shown bellow. 
+Program should work on Windows but was not tested. The script won't work on Windows. Tested on Linux only.
 
 __Use-cases__:
 
@@ -79,5 +80,5 @@ With text output ‡‡‡‡ will produce:
 
 ## Required libs
 1. Python 3.8+
-2. PyEnchant (For better results). Requires the enchant package.
+2. PyEnchant (For better results). Requires the enchant package installed on your OS.
 3. guess_language: https://bitbucket.org/spirit/guess_language/src/default/
