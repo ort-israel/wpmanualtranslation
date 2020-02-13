@@ -1,5 +1,43 @@
 from guess_language import guess_language
-# import enchant
+import enchant
+from unicodedata import name as writing_system
+
+
+def lang_to_system(str_lang: str) -> str:
+    """
+    Converts language to writing system
+    :param str_lang: Target new site language
+    :return: Writing system of str_lang
+    """
+    # Use writing_system("<char>").split()[0] to add new languages
+    if str_lang == "he":
+        return "HEBREW"
+    elif str_lang == "en" or str_lang == "fr":
+        return "LATIN"
+    elif str_lang == "ar":
+        return "ARABIC"
+    else:
+        raise Exception("Unknown language")
+
+
+def is_word_system_bad(str_word: str, str_system: str) -> bool:
+    """
+    Detects the writing system of a str_word
+    :param str_word: word to check
+    :param str_system: The writing system of the new wp site.
+    :return: True if the word needs to be translated, False otherwise
+    """
+    # Iterate on the word. If it's number - ignore and move on. If char check writing system
+    for char in str_word.split():
+        if str.isalpha(char):
+            system = writing_system(char, "error").split()[0]
+            if system == "error":
+                raise Exception("Unknown writing system")
+            if system == str_system:
+                return False
+
+    # If it got here, it should be ok
+    return True
 
 
 def word_breaker(str_sentence: str) -> list:
