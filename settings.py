@@ -1,18 +1,20 @@
+import foreign
+
+settings_dict = dict()
+
+
 def read_settings():
-    """Read settings from the config file and returns the setting as dictionary
+    """Read settings from the config file and populates settings_dict
     List of possible settings:
     posts_csv_name: post and pages csv file name
     media_csv_name: media csv file name
-    db_user: db username
-    db_pass: db password
-    db_port: db port
-    db_link: db link
+    tag_csv_name: Tags and categories file name
+    nav_csv_name: Nav menu items file name
     mark_start: Mark start
     mark_end: Mark end
     project: Project name. Will be used as output folder name and small file name
+    language: Language needed
     """
-
-    settings_dict = dict()
 
     with open("config.txt") as settings_file:
         for line in settings_file:
@@ -24,6 +26,5 @@ def read_settings():
                 key, value = line.split(":=")
                 settings_dict[key] = value
 
-    return settings_dict
-
-
+    # Set writing system
+    settings_dict["writing_system"] = foreign.lang_to_system(settings_dict["language"])

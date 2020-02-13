@@ -1,4 +1,4 @@
-import settings
+from settings import settings_dict
 import csvparser
 import post
 import outputcreator
@@ -8,27 +8,19 @@ def main():
     """Main func"""
 
     # Read settings
-    settings_dict = settings.read_settings()
+    settings.read_settings()
 
     # Get list of posts
-    list_of_posts = csvparser.post_csv_reader(settings_dict["posts_csv_name"],
-                                              settings_dict["mark_start"],
-                                              settings_dict["mark_end"])
+    list_of_posts = csvparser.post_csv_reader()
 
     # Get list of media (pictures an so on)
-    list_of_media = csvparser.post_csv_reader(settings_dict["media_csv_name"],
-                                              settings_dict["mark_start"],
-                                              settings_dict["mark_end"])
+    list_of_media = csvparser.post_csv_reader()
 
     # Get list of tags
-    list_of_tags = csvparser.tag_csv_reader(settings_dict["tag_csv_name"],
-                                            settings_dict["mark_start"],
-                                            settings_dict["mark_end"])
+    list_of_tags = csvparser.tag_csv_reader()
 
     # Get list of menu items
-    list_of_nav = csvparser.post_csv_reader(settings_dict["nav_csv_name"],
-                                            settings_dict["mark_start"],
-                                            settings_dict["mark_end"])
+    list_of_nav = csvparser.post_csv_reader()
 
     # Send items to the formatter
     outputcreator.post_text_output(list_of_posts, settings_dict["project"], "Posts and Pages")
