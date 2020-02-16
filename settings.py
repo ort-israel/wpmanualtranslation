@@ -1,6 +1,21 @@
-import foreign
-
 settings_dict = dict()
+
+
+def lang_to_system(str_lang: str) -> str:
+    """
+    Converts language to writing system
+    :param str_lang: Target new site language
+    :return: Writing system of str_lang
+    """
+    # Use writing_system("<char>").split()[0] to add new languages
+    if str_lang == "he":
+        return "HEBREW"
+    elif str_lang == "en" or str_lang == "fr":
+        return "LATIN"
+    elif str_lang == "ar":
+        return "ARABIC"
+    else:
+        raise Exception("Unknown language")
 
 
 def read_settings():
@@ -27,4 +42,4 @@ def read_settings():
                 settings_dict[key] = value
 
     # Set writing system
-    settings_dict["writing_system"] = foreign.lang_to_system(settings_dict["language"])
+    settings_dict["writing_system"] = lang_to_system(settings_dict["language"])

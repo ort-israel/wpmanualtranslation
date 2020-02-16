@@ -1,43 +1,25 @@
 from guess_language import guess_language
-import enchant
+from settings import settings_dict
+# import enchant
 from unicodedata import name as writing_system
 
 
-def lang_to_system(str_lang: str) -> str:
-    """
-    Converts language to writing system
-    :param str_lang: Target new site language
-    :return: Writing system of str_lang
-    """
-    # Use writing_system("<char>").split()[0] to add new languages
-    if str_lang == "he":
-        return "HEBREW"
-    elif str_lang == "en" or str_lang == "fr":
-        return "LATIN"
-    elif str_lang == "ar":
-        return "ARABIC"
-    else:
-        raise Exception("Unknown language")
-
-
-def is_word_system_bad(str_word: str, str_system: str) -> bool:
+def is_word_system_bad(str_word: str) -> bool:
     """
     Detects the writing system of a str_word
     :param str_word: word to check
-    :param str_system: The writing system of the new wp site.
     :return: True if the word needs to be translated, False otherwise
     """
     # Iterate on the word. If it's number - ignore and move on. If char check writing system
-    for char in str_word.split():
-        if str.isalpha(char):
-            system = writing_system(char, "error").split()[0]
-            if system == "error":
-                raise Exception("Unknown writing system")
-            if system == str_system:
-                return False
+    for char in str_word:
+        system = writing_system(char, "error").split()[0]
+        if system == "error" and str.isprintable(char):
+            raise Exception("Unknown writing system: " + str_word + " ||| " + char)
+        elif system != settings_dict["writing_system"] and str.isalpha(char):
+            return True
 
     # If it got here, it should be ok
-    return True
+    return False
 
 
 def word_breaker(str_sentence: str) -> list:
@@ -62,21 +44,37 @@ def content_lang_marker(list_of_words: list, str_start_mark: str, str_end_mark: 
     """
     complete_list = list()
     small_list = list()
+    sentence_list = list()  # Creates list of segments by writing system
+    str_sentence = ""
 
     # Check all words
     for str_cell in list_of_words:
-        # Adding /r and /n
+        # Adding /r and /n (Python delimiter workaround)
         # Change ř to \r . Then ň to \n
         str_text = str_cell.replace("ř", "\r")
         str_text = str_text.replace("ň", "\n")
 
-        # If hebrew add marking.
-        if guess_language(str_text) == lang:
-            # Note: In python only functions, modules and classes have scope
-            temp = str_start_mark + " " + str_text + " " + str_end_mark
-            small_list.append(str_text)
+        if is_word_system_bad(str_text):
+            str_sentence += str_text + " "
         else:
-            temp = str_text
+            sentence_list.append(str_sentence)
+            str_sentence = ""
+
+    # Append the last sentence to the list unless it's already there
+    if len(sentence_list) > 0:
+        if sentence_list[-1] != str_sentence:
+            sentence_list.append(str_sentence)
+    elif str_sentence != "":
+        sentence_list.append(str_sentence)
+
+    for str_cell in sentence_list:
+        # If foreign add marking.
+        if guess_language(str_cell) != lang:
+            # Note: In python only functions, modules and classes have scope
+            temp = str_start_mark + " " + str_cell + " " + str_end_mark
+            small_list.append(str_cell)
+        else:
+            temp = str_cell
 
         complete_list.append(temp)
 

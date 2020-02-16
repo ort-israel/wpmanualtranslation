@@ -43,20 +43,20 @@ class Post:
         for post_text in self.content:
             words += foreign.word_breaker(post_text)
         self.content_complete_list, self.content_small_list = \
-            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "he")
+            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "ar")
 
         words = foreign.word_breaker(self.excerpt)
 
         # Mark foreign words in excerpt
         self.excerpt_complete_list, self.excerpt_small_list = \
-            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "he")
+            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "ar")
 
         # Mark foreign words in name
         words = foreign.word_breaker(self.name)
         to_discard, self.name_small_list = \
-            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "he")
+            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "ar")
 
         # Mark foreign words in title
         words = foreign.word_breaker(self.title)
         to_discard, self.title_small_list = \
-            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "he")
+            foreign.content_lang_marker(words, str_mark_start, str_mark_end, "ar")

@@ -30,8 +30,8 @@ class Tag(BaseItem):
 
         # Mark foreign words in descriptions
         self.desc_complete_list, self.desc_small_list = \
-            foreign.content_lang_marker(self.description, str_mark_start, str_mark_end, "he")
+            foreign.content_lang_marker(self.description, str_mark_start, str_mark_end, "ar")
 
         # Mark foreign words in the name
         self.name_complete_list, self.name_small_list = \
-            foreign.content_lang_marker(self.filtered_name, str_mark_start, str_mark_end, "he")
+            foreign.content_lang_marker(self.filtered_name, str_mark_start, str_mark_end, "ar")

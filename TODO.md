@@ -22,17 +22,20 @@ Should I create a class for each post?
 1. Excerpt - Done, pages (Same as posts) - Done, media (uses post class), tags (Done)
     When classes are done add print to the outputcreator.py
     Maybe post_type = "nav_menu_item" in wp_posts? Check if working - Done
-2. Why arabic is not recognised? Maybe use this: Should ask Moshe - Sent mail. Waiting for answer 
-    https://stackoverflow.com/questions/42510056/detect-the-writing-system-of-a-string-in-python/42510267 <======
+2. Why arabic is not recognised? Maybe use this: 
+    https://stackoverflow.com/questions/42510056/detect-the-writing-system-of-a-string-in-python/42510267 Done
 3. Settings: Done
 4. Maybe Mark string in the name too (for Post and base item)?
+5. Translate string like %d7%91%d7%97%d7%9f-%d7%90%d7%aa to something readable
 
 ## For v0.3
 1. Convert pages and post to use inheritance. 
-2. foreign requires string (due to python csv bypass) but htmlparser (due to my implementation) returns list.
-    Refactor htmlparser 
-3. Other output format: csv and html
-4. Rest of the hardcoded settings ("he")
+2. Rest of the hardcoded settings ("he")
+3. Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  "). 
+4. License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
 
 ## For v0.4
 1. h5p?
+2. foreign requires string (due to python csv bypass) but htmlparser (due to my implementation) returns list.
+    Refactor htmlparser 
+3. Other output format: csv and html
