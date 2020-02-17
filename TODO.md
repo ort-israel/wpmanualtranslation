@@ -30,12 +30,15 @@ Should I create a class for each post?
 
 ## For v0.3
 1. Convert pages and post to use inheritance. 
-2. Rest of the hardcoded settings ("he")
+2. Rest of the hardcoded settings ("ar")
 3. Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  "). 
 4. License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
+5. Tags: Separate for tags, categories, menu items and customized links
 
 ## For v0.4
 1. h5p?
 2. foreign requires string (due to python csv bypass) but htmlparser (due to my implementation) returns list.
     Refactor htmlparser 
 3. Other output format: csv and html
+4. Sort by ABC of the original language
+5. Contact Forms with contact form 7
