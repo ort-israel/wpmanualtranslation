@@ -25,8 +25,9 @@ Should I create a class for each post?
 2. Why arabic is not recognised? Maybe use this: 
     https://stackoverflow.com/questions/42510056/detect-the-writing-system-of-a-string-in-python/42510267 Done
 3. Settings: Done
-4. Maybe Mark string in the name too (for Post and base item)?
-5. Translate string like %d7%91%d7%97%d7%9f-%d7%90%d7%aa to something readable
+4. Maybe Mark string in the name too (for Post and base item)? 
+5. Translate string like %d7%91%d7%97%d7%9f-%d7%90%d7%aa to something readable - https://www.url-encode-decode.com/
+urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.parse.html#urllib.parse.unquote
 
 ## For v0.3
 1. Convert pages and post to use inheritance. 
