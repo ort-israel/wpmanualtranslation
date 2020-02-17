@@ -30,7 +30,10 @@ WHERE post_type = "attachment" ;
 SELECT wp_terms.term_id,wp_terms.name,wp_terms.slug,wp_term_taxonomy.taxonomy,wp_term_taxonomy.description
 FROM wp_terms
 INNER JOIN wp_term_taxonomy ON (wp_term_taxonomy.term_id = wp_terms.term_id)
-WHERE wp_term_taxonomy.taxonomy = "category" OR wp_term_taxonomy.taxonomy = "post_tag" OR wp_term_taxonomy.taxonomy = "nav_menu" OR wp_term_taxonomy.taxonomy = "glossary-cat";
+WHERE wp_term_taxonomy.taxonomy = "category" OR 
+      wp_term_taxonomy.taxonomy = "post_tag" OR 
+      wp_term_taxonomy.taxonomy = "nav_menu" OR 
+      wp_term_taxonomy.taxonomy = "glossary-cat";
 ```
 
 ### Menu items
