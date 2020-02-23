@@ -4,14 +4,15 @@ from tag import Tag
 from settings import settings_dict
 
 
-def post_csv_reader():
+def post_csv_reader(str_file_name: str):
     """
     Parses the csv file and returns a list of post objects
+    :param str_file_name: file name
     :return: list of posts, pages or media
     """
     list_of_post = list()
 
-    with open(settings_dict["posts_csv_name"], newline='', encoding='utf_8') as posts:
+    with open(str_file_name, newline='', encoding='utf_8') as posts:
         posts_reader = reader(posts, delimiter='‡', quotechar='|')
         # To get rid of the first line: ['ID', 'post_content', 'post_title', 'post_excerpt', 'post_name', 'guid']
         posts_reader.__next__()
