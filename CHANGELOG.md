@@ -12,3 +12,5 @@
 5. Nav menu item support
 6. Marking for name and title (Post, media and tags)
 7. README organized. TODO stuff moved from README to TODO. 
+8. URL decode support for item name field.
+9. Rewrite of foreign detection functions for better detection. 
