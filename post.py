@@ -2,6 +2,7 @@
 from htmlparser import *
 from re import sub
 import foreign
+from urllib.parse import unquote_plus as translate_url
 
 
 # Post class
@@ -18,7 +19,7 @@ class Post:
         self.title = str_title  # Post title
         self.title_small_list = list()
         self.excerpt = str_excerpt  # Post excerpt
-        self.name = str_name  # Post name
+        self.name = translate_url(str_name)  # Post name
         self.name_small_list = list()
         self.link = str_guid  # Post link
         self.content_small_list = list()
@@ -52,7 +53,7 @@ class Post:
             foreign.content_lang_marker(words, str_mark_start, str_mark_end, "ar")
 
         # Mark foreign words in name
-        words = foreign.word_breaker(self.name)
+        words = self.name.split("-")
         to_discard, self.name_small_list = \
             foreign.content_lang_marker(words, str_mark_start, str_mark_end, "ar")
 

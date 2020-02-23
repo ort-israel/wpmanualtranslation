@@ -21,7 +21,7 @@ class Media(BaseItem):
             foreign.content_lang_marker(words, str_mark_start, str_mark_end, "ar")
 
         # Mark foreign words in name
-        words = foreign.word_breaker(self.name)
+        words = self.name.split("-")
         to_discard, self.name_small_list = \
             foreign.content_lang_marker(words, str_mark_start, str_mark_end, "ar")
 

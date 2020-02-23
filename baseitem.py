@@ -1,5 +1,6 @@
 from htmlparser import MyHTMLParser
 from re import sub
+from urllib.parse import unquote_plus as translate_url
 
 
 class BaseItem:
@@ -9,7 +10,8 @@ class BaseItem:
     def __init__(self, str_id: str, str_name: str, str_content: str, str_link: str):
         # Class vars
         self.id = str_id
-        self.name = str_name
+        # parse url decoding
+        self.name = translate_url(str_name)
         self.name_small_list = list()
         self.content = list()
         self.link = str_link
