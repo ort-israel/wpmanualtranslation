@@ -13,33 +13,38 @@ Should I create a class for each post?
 ** Field separator is ‡ ** 
 
 ## For v0.1
-0. Read Settings file. settings.py. V function was written
-1. Get posts from csv. csv.py for parsing csv, post.py - post class - for each post. post.py is done V
-2. Check post lang. Assume Hebrew is needed. Returns one list with all text and hebrew marked and one with just hebrew foreign.py <=====
-3. Print to csv file: page link and number of foreign words detected. Runs foreign.py on each post class. Part of main. 
+0. [x] Read Settings file. settings.py. V function was written
+1. [x] Get posts from csv. csv.py for parsing csv, post.py - post class - for each post. post.py is done V
+2. [x] Check post lang. Assume Hebrew is needed. Returns one list with all text and hebrew marked and one with just hebrew foreign.py V
+3. [x] Print to csv file: page link and number of foreign words detected. Runs foreign.py on each post class. Part of main. V
 
 ## For v0.2
-1. Excerpt - Done, pages (Same as posts) - Done, media (uses post class), tags (Done)
+1. [x] Excerpt - Done, pages (Same as posts) - Done, media (uses post class), tags (Done)
     When classes are done add print to the outputcreator.py
     Maybe post_type = "nav_menu_item" in wp_posts? Check if working - Done
-2. Why arabic is not recognised? Maybe use this: 
+2. [x] Why arabic is not recognised? Maybe use this: 
     https://stackoverflow.com/questions/42510056/detect-the-writing-system-of-a-string-in-python/42510267 Done
-3. Settings: Done
-4. Maybe Mark string in the name too (for Post and base item)? 
-5. Translate string like %d7%91%d7%97%d7%9f-%d7%90%d7%aa to something readable - https://www.url-encode-decode.com/
-urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.parse.html#urllib.parse.unquote
+3. [x] Settings: Done
+4. [x] Maybe Mark string in the name too (for Post and base item)? Done
+5. [x] Translate string like %d7%91%d7%97%d7%9f-%d7%90%d7%aa to something readable - https://www.url-encode-decode.com/
+urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.parse.html#urllib.parse.unquote Done
 
 ## For v0.3
-1. Convert pages and post to use inheritance. 
-2. Rest of the hardcoded settings ("ar")
-3. Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  "). 
-4. License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
-5. Tags: Separate for tags, categories, menu items and customized links
+1. [ ] Output should not include objects that don't need translation.
+2. [ ] Rest of the hardcoded settings ("ar")
+3. [ ] Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  "). 
+4. [ ] License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
+5. [ ] Tags: Separate for tags, categories, menu items and customized links
 
 ## For v0.4
-1. h5p?
-2. foreign requires string (due to python csv bypass) but htmlparser (due to my implementation) returns list.
+1. [ ] Convert pages and post to use inheritance.
+2. [ ] foreign requires string (due to python csv bypass) but htmlparser (due to my implementation) returns list.
     Refactor htmlparser 
-3. Other output format: csv and html
-4. Sort by ABC of the original language
-5. Contact Forms with contact form 7
+3. [ ] Print output to csv
+4. [ ] Sort by ABC of the original language (small list only)
+5. [ ] Contact Forms with contact form 7
+
+## For 0.5
+1. [ ] media.py is not used. Should it be used or just delete it? (Media and Post have the same fields)
+2. [ ] h5p?
+3. [ ] Print output to html
