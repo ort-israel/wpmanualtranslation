@@ -21,7 +21,7 @@ def tag_text_output(list_of_tags: list, folder_name: str, str_type="Tags"):
         # Complete list
         complete_file = open(single_item.name + ".txt", "w")
         complete_file.write("--------------------------------------------------------------------------------- \n")
-        complete_file.write("Name: ... " + " ".join(single_item.name) + "\n")
+        complete_file.write("Name: ... " + single_item.name + "\n")
         complete_file.write("Marked Name: ... " + " ".join(single_item.name_complete_list) + "\n")
         complete_file.write("Type: ... " + single_item.type + "\n")
         complete_file.write("--------------------------------------------------------------------------------- \n \n")
