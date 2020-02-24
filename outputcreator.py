@@ -127,8 +127,9 @@ def nav_text_output(list_of_items: list, folder_name: str):
         small_file.write("--------------- \n")
         small_file.write("Title: ... " + single_item.title + "\n")
         small_file.write("Marked Title: ... " + " ".join(single_item.title_small_list) + "\n")
-        small_file.write("Name: ... " + single_item.name + "\n")
-        small_file.write("Marked Name: ... " + " ".join(single_item.name_small_list) + "\n")
+        # Unable to find where it used in wp site and where to edit it on wp control panel
+        # small_file.write("Name: ... " + single_item.name + "\n")
+        # small_file.write("Marked Name: ... " + " ".join(single_item.name_small_list) + "\n")
         small_file.write("************************************************************************************ \n")
         small_file.write("************************************************************************************ \n")
 
