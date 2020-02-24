@@ -34,7 +34,8 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 2. [ ] Rest of the hardcoded settings ("ar")
 3. [ ] Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  "). 
 4. [ ] License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
-5. [ ] Tags: Separate for tags, categories, menu items and customized links
+5. [ ] Tags: Separate for tags, categories, menu items and customized links (add object var for type)
+6. [ ] Posts: Add object var for type and than drop name marking for nav_menu_item
 
 ## For v0.4
 1. [ ] Convert pages and post to use inheritance.
@@ -42,9 +43,11 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
     Refactor htmlparser 
 3. [ ] Print output to csv
 4. [ ] Sort by ABC of the original language (small list only)
-5. [ ] Contact Forms with contact form 7
+5. [ ] Complete list doesn't include non foreign string. Why? 
 
 ## For 0.5
 1. [ ] media.py is not used. Should it be used or just delete it? (Media and Post have the same fields)
 2. [ ] h5p?
 3. [ ] Print output to html
+4. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary
+5. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form
