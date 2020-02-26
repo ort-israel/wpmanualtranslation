@@ -5,7 +5,7 @@
 4. Inline marking of h5p and image object by \*\*\*\* Image\h5p \*\*\*\*
 
 # v0.2
-1. Less hardcoded settings: string marking, output folder name, 
+1. Less hardcoded settings: string marking, output folder name. 
 2. Excerpt support
 3. Media, Pages and tags.
 4. Redesign: Base class for item storage. Tags and Media inherit it. Post and pages in the future.
