@@ -68,18 +68,19 @@ def content_lang_marker(list_of_words: list, str_start_mark: str, str_end_mark: 
         str_text = str_cell.replace("ř", "\r")
         str_text = str_text.replace("ň", "\n")
 
+        # Check if word needs translation, add it only if it's not empty
         if is_word_system_bad(str_text):
             str_sentence += str_text + " "
-        else:
+        elif len(str_sentence) > 0:
             sentence_list.append(str_sentence)
             str_sentence = ""
-
-    # Append the last sentence to the list unless it's already there
-    if len(sentence_list) > 0:
-        if sentence_list[-1] != str_sentence:
+    else:
+        # Append the last sentence to the list unless it's already there. Add only if it's not empty
+        if len(sentence_list) > 0:
+            if sentence_list[-1] != str_sentence and str_sentence.isprintable():
+                sentence_list.append(str_sentence)
+        elif str_sentence != "" and str_sentence.isprintable():
             sentence_list.append(str_sentence)
-    elif str_sentence != "":
-        sentence_list.append(str_sentence)
 
     for str_cell in sentence_list:
         # If foreign add marking.

@@ -32,7 +32,7 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 ## For v0.3
 1. [ ] Output should not include objects that don't need translation. Implemented - Check if working after no. 3.
 2. [x] Rest of the hardcoded settings ("ar")
-3. [ ] Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  "). 
+3. [ ] Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  "). <=== Check if working
 4. [x] License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
 5. [ ] Tags: Separate for tags, categories, menu items and customized links (add object var for type)
 6. [ ] Posts: Add object var for type and than drop name marking for nav_menu_item
