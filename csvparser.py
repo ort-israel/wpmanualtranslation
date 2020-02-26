@@ -1,3 +1,18 @@
+"""    <Simple tool to manually find string that need to be translated in a wordpress for cases where you chose to duplicate the site>
+    Copyright (C) <2020>  <Shay Gover, ort-israel>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 from csv import reader
 from post import Post
 from tag import Tag
@@ -6,7 +21,7 @@ from settings import settings_dict
 
 def post_csv_reader(str_file_name: str):
     """
-    Parses the csv file and returns a list of post objects
+    Parses the csv file and returns a list of objects
     :param str_file_name: file name
     :return: list of posts, pages or media
     """
@@ -20,7 +35,13 @@ def post_csv_reader(str_file_name: str):
         for current_post in posts_reader:
             post_obj = Post(current_post[0], current_post[1], current_post[2], current_post[3],
                             current_post[4], current_post[5], settings_dict["mark_start"], settings_dict["mark_end"])
-            list_of_post.append(post_obj)
+
+            # Making sure that items that don't need translation won't be printed to output
+            if len(post_obj.title_small_list) != 0 or \
+                    len(post_obj.name_small_list) != 0 or \
+                    len(post_obj.content_small_list) != 0 or \
+                    len(post_obj.excerpt_small_list) != 0:
+                list_of_post.append(post_obj)
 
     # Return the list
     return list_of_post
@@ -42,7 +63,10 @@ def tag_csv_reader():
         for current_tag in tags_reader:
             tag_obj = Tag(current_tag[0], current_tag[1], current_tag[2], current_tag[3],
                           current_tag[4], settings_dict["mark_start"], settings_dict["mark_end"])
-            list_of_tags.append(tag_obj)
+
+            # Making sure that items that don't need translation won't be printed to output
+            if len(tag_obj.name_small_list) != 0 or len(tag_obj.desc_small_list) != 0:
+                list_of_tags.append(tag_obj)
 
     # Return the list
     return list_of_tags

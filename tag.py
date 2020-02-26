@@ -1,6 +1,22 @@
+"""    <Simple tool to manually find string that need to be translated in a wordpress for cases where you chose to duplicate the site>
+    Copyright (C) <2020>  <Shay Gover, ort-israel>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 import foreign
 from re import sub
 from baseitem import BaseItem
+from settings import settings_dict
 
 
 class Tag(BaseItem):
@@ -30,8 +46,8 @@ class Tag(BaseItem):
 
         # Mark foreign words in descriptions
         self.desc_complete_list, self.desc_small_list = \
-            foreign.content_lang_marker(self.description, str_mark_start, str_mark_end, "ar")
+            foreign.content_lang_marker(self.description, str_mark_start, str_mark_end, settings_dict["language"])
 
         # Mark foreign words in the name
         self.name_complete_list, self.name_small_list = \
-            foreign.content_lang_marker(self.filtered_name, str_mark_start, str_mark_end, "ar")
+            foreign.content_lang_marker(self.filtered_name, str_mark_start, str_mark_end, settings_dict["language"])
