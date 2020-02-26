@@ -30,10 +30,10 @@ Should I create a class for each post?
 urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.parse.html#urllib.parse.unquote Done
 
 ## For v0.3
-1. [ ] Output should not include objects that don't need translation.
-2. [ ] Rest of the hardcoded settings ("ar")
+1. [ ] Output should not include objects that don't need translation. Implemented - Check if working after no. 3.
+2. [x] Rest of the hardcoded settings ("ar")
 3. [ ] Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  "). 
-4. [ ] License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
+4. [x] License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
 5. [ ] Tags: Separate for tags, categories, menu items and customized links (add object var for type)
 6. [ ] Posts: Add object var for type and than drop name marking for nav_menu_item
 
@@ -51,3 +51,6 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 3. [ ] Print output to html
 4. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary
 5. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form
+
+## For 0.6 
+1. [ ] Check that all required settings are in the file. If settings are missing or unknown setting were entered, use raise
