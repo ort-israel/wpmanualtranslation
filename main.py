@@ -43,7 +43,7 @@ def main():
     outputcreator.nav_text_output(list_of_nav, settings.settings_dict["project"])
 
     # Print done
-    print(" <program>  Copyright (C) <2020>  <Shay Gover, ort-israel>")
+    print(" <wpmanualtranslation>  Copyright (C) <2020>  <Shay Gover, ort-israel>")
     print("This program comes with ABSOLUTELY NO WARRANTY; ")
     print("This is free software, and you are welcome to redistribute ")
     print("it under certain conditions; For more details check the repo:")
