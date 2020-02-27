@@ -49,7 +49,7 @@ class Post:
 
         # Strip remaining non HTML tags (such as [h5p id="#"])
         for item in html_remover.html_text:
-            temp = sub(r" ?\[[^)]+\]", "****h5p_item****", item)
+            temp = sub(r" ?\[[^)]+\]", " " + settings_dict["h5p"] + " ", item)
             self.content.append(temp)
 
         html_remover.close()

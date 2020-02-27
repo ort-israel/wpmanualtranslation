@@ -45,6 +45,8 @@ def read_settings():
     mark_end: Mark end
     project: Project name. Will be used as output folder name and small file name
     language: Language needed
+    image: image placeholder
+    h5p: h5p placeholder
     """
 
     with open("config.txt") as settings_file:

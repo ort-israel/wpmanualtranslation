@@ -24,6 +24,10 @@ def is_word_system_bad(str_word: str) -> bool:
     :param str_word: word to check
     :return: True if the word needs to be translated, False otherwise
     """
+    # Make sure the word is not an h5p or image place holder
+    if str_word == settings_dict["h5p"] or str_word == settings_dict["image"]:
+        return False
+
     # Iterate on the word. If it's number - ignore and move on. If char check writing system
     for char in str_word:
         system = writing_system(char, "error").split()[0]
@@ -76,11 +80,14 @@ def content_lang_marker(list_of_words: list, str_start_mark: str, str_end_mark: 
             str_sentence = ""
     else:
         # Append the last sentence to the list unless it's already there. Add only if it's not empty
-        if len(sentence_list) > 0:
-            if sentence_list[-1] != str_sentence and str_sentence.isprintable():
+        if str_sentence.isprintable() and len(str_sentence) > 0:
+            try:
+                str_last = sentence_list[-1]
+
+                if str_last != str_sentence:
+                    sentence_list.append(str_sentence)
+            except IndexError:
                 sentence_list.append(str_sentence)
-        elif str_sentence != "" and str_sentence.isprintable():
-            sentence_list.append(str_sentence)
 
     for str_cell in sentence_list:
         # If foreign add marking.

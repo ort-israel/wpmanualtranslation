@@ -15,6 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 from html.parser import HTMLParser
+from settings import settings_dict
 
 
 class MyHTMLParser(HTMLParser):
@@ -40,7 +41,7 @@ class MyHTMLParser(HTMLParser):
         :return: Appends img tags to html_txt
         """
         if tag == "img":
-            self.html_text.append("ň****Image****ň")
+            self.html_text.append(" " + settings_dict["image"] + " ")
 
 
 def get_sections(str_content):
