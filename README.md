@@ -13,14 +13,14 @@ __Use-cases__:
 When saving the csv file use utf-8 encoding, † as line delimiter and ‡ as field delimiter. 
 ### Pages and Posts
 ```sql
-SELECT ID,post_content,post_title,post_excerpt,post_name,guid
+SELECT ID,post_content,post_title,post_excerpt,post_name,guid,post_type
 FROM wp_posts 
 WHERE (post_type = "page" OR post_type = "post") AND post_status = "publish";
 ```
 
 ### Media
 ```sql
-SELECT ID,post_content,post_title,post_excerpt,post_name,guid
+SELECT ID,post_content,post_title,post_excerpt,post_name,guid,post_type
 FROM wp_posts 
 WHERE post_type = "attachment" ;
 ```
@@ -38,7 +38,7 @@ WHERE wp_term_taxonomy.taxonomy = "category" OR
 
 ### Menu items
 ```sql
-SELECT ID,post_content,post_title,post_excerpt,post_name,guid
+SELECT ID,post_content,post_title,post_excerpt,post_name,guid,post_type
 FROM wp_posts
 WHERE post_type="nav_menu_item";
 ```
@@ -75,7 +75,8 @@ With text output ‡‡‡‡ will produce:
 2. csvparser.py: Parses the csv files and creates item lists (Calls the proper class constructor).
 3. htmlparser.py: Remove unneeded html tags from the content. Replaces images with \*\*\*\*Image\*\*\*\*.  
 4. baseitem.py: Parent class for items.
-5. post.py, media.py, tag.py: Classes for each item type (post also accommodates pages and nav items, tag also accommodates categories).
+5. post.py, tag.py: Classes for each item type (post also accommodates pages, media and nav items, 
+tag also accommodates categories and menu items).
 6. foreign.py: Detects foreign strings.
 7. outputcreator.py: Creates the output files. small file vs complete file: 
     small file contains only the foreign strings, complete contains everything. Use complete for context. 
