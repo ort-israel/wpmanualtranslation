@@ -14,11 +14,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 # Imports
-from htmlparser import *
-from re import sub
 import foreign
-from urllib.parse import unquote_plus as translate_url
-from settings import settings_dict
+from settings import *
 from baseitem import *
 
 
@@ -65,3 +62,31 @@ class Post(BaseItem):
         words = foreign.word_breaker(self.title)
         to_discard, self.title_small_list = \
             foreign.content_lang_marker(words, str_mark_start, str_mark_end, settings_dict["language"])
+
+    def is_post_translation_needed(self):
+        """
+        Checks if post object type needs translation
+        :param self: post object
+        :return: True if translation needed, False otherwise
+        """
+        if self.type == PAGE_TYPE:
+            if len(self.excerpt_small_list) > 0 or len(self.content_small_list) > 0 or \
+                   len(self.name_small_list) > 0 or len(self.title_small_list) > 0:
+                return True
+        elif self.type == POST_TYPE:
+            if len(self.excerpt_small_list) > 0 or len(self.content_small_list) > 0 or \
+                    len(self.name_small_list) > 0 or len(self.title_small_list) > 0:
+                return True
+        elif self.type == MEDIA_TYPE:
+            if len(self.excerpt_small_list) > 0 or len(self.content_small_list) > 0 or \
+                    len(self.name_small_list) > 0 or len(self.title_small_list) > 0:
+                return True
+        elif self.type == NAV_MENU_ITEM_TYPE:
+            # For nav menu items, name is useless
+            if len(self.excerpt_small_list) > 0 or len(self.content_small_list) > 0 or \
+                    len(self.title_small_list) > 0:
+                return True
+        else:
+            raise Exception("Unknown post type: " + self.type)
+
+        return False

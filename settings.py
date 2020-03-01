@@ -14,7 +14,18 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 
+# Holds all settings
 settings_dict = dict()
+
+# Item types constants
+POST_TYPE = "post"
+PAGE_TYPE = "page"
+MEDIA_TYPE = "attachment"
+TAG_TYPE = "post_tag"
+CATEGORY_TYPE = "category"
+NAV_MENU_TYPE = "nav_menu"
+GLOSSARY_TYPE = "glossary-cat"
+NAV_MENU_ITEM_TYPE = "nav_menu_item"
 
 
 def lang_to_system(str_lang: str) -> str:

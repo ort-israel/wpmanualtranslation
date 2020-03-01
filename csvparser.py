@@ -14,8 +14,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 from csv import reader
-from post import Post
-from tag import Tag
+from post import *
+from tag import *
 from settings import settings_dict
 
 
@@ -38,10 +38,7 @@ def post_csv_reader(str_file_name: str):
                             settings_dict["mark_end"])
 
             # Making sure that items that don't need translation won't be printed to output
-            if len(post_obj.title_small_list) != 0 or \
-                    len(post_obj.name_small_list) != 0 or \
-                    len(post_obj.content_small_list) != 0 or \
-                    len(post_obj.excerpt_small_list) != 0:
+            if post_obj.is_post_translation_needed():
                 list_of_post.append(post_obj)
 
     # Return the list
@@ -66,7 +63,7 @@ def tag_csv_reader():
                           current_tag[4], settings_dict["mark_start"], settings_dict["mark_end"])
 
             # Making sure that items that don't need translation won't be printed to output
-            if len(tag_obj.name_small_list) != 0 or len(tag_obj.desc_small_list) != 0:
+            if tag_obj.is_tag_translation_needed():
                 list_of_tags.append(tag_obj)
 
     # Return the list

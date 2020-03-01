@@ -16,7 +16,7 @@
 import foreign
 from re import sub
 from baseitem import BaseItem
-from settings import settings_dict
+from settings import *
 
 
 class Tag(BaseItem):
@@ -50,3 +50,24 @@ class Tag(BaseItem):
         # Mark foreign words in the name
         self.name_complete_list, self.name_small_list = \
             foreign.content_lang_marker(self.filtered_name, str_mark_start, str_mark_end, settings_dict["language"])
+
+    def is_tag_translation_needed(self):
+        """
+        Checks if tag object type needs translation
+        :param self: tag object
+        :return: True if translation needed, False otherwise
+        """
+        if self.type == TAG_TYPE:
+            if len(self.name_small_list) > 0 or len(self.desc_small_list) > 0:
+                return True
+        elif self.type == CATEGORY_TYPE:
+            if len(self.name_small_list) > 0 or len(self.desc_small_list) > 0:
+                return True
+        elif self.type == NAV_MENU_TYPE:
+            if len(self.name_small_list) > 0 or len(self.desc_small_list) > 0:
+                return True
+        elif self.type == GLOSSARY_TYPE:
+            if len(self.name_small_list) > 0 or len(self.desc_small_list) > 0:
+                return True
+        else:
+            raise Exception("Unknown tag type: " + self.type)

@@ -34,13 +34,14 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 2. [x] Rest of the hardcoded settings ("ar")
 3. [x] Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  ").
 4. [x] License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
-5. [ ] Add type to sql queries and to base item
+5. [x] Add type to sql queries and to base item
 6. [x] Convert pages and post to use inheritance.
 7. [ ] Tags: Separate output for tags, categories, menu items and customized links
+8. [ ] Posts: Separate output for pages and posts
 
 ## For v0.4
 1. [ ] Posts: drop name marking for nav_menu_item
-2. [ ] foreign requires string (due to python csv bypass) but htmlparser (due to my implementation) returns list.
+2. [ ] foreign requires string (due to python csv bypass) but htmlpalrser (due to my implementation) returns list.
     Refactor htmlparser 
 3. [ ] Print output to csv
 4. [ ] Sort by ABC of the original language (small list only)
