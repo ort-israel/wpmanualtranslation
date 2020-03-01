@@ -19,40 +19,28 @@ from re import sub
 import foreign
 from urllib.parse import unquote_plus as translate_url
 from settings import settings_dict
+from baseitem import *
 
 
 # Post class
-class Post:
+class Post(BaseItem):
     """
     Holds a single post, page or media data
     """
 
     def __init__(self, num_id: str, str_content: str, str_title: str, str_excerpt: str, str_name: str, str_guid: str,
-                 str_mark_start: str, str_mark_end: str):
+                 str_type: str, str_mark_start: str, str_mark_end: str):
         # Here be all class vars
-        self.id = num_id  # ID
-        self.content = list()  # Post content
+        super().__init__(num_id, str_name, str_content, str_guid, str_type)
         self.title = str_title  # Post title
         self.title_small_list = list()
         self.excerpt = str_excerpt  # Post excerpt
         self.name = translate_url(str_name)  # Post name
         self.name_small_list = list()
-        self.link = str_guid  # Post link
         self.content_small_list = list()
         self.content_complete_list = list()
         self.excerpt_small_list = list()
         self.excerpt_complete_list = list()
-
-        # Strip unneeded html tags from post content
-        html_remover = MyHTMLParser()
-        html_remover.feed(str_content)
-
-        # Strip remaining non HTML tags (such as [h5p id="#"])
-        for item in html_remover.html_text:
-            temp = sub(r" ?\[[^)]+\]", " " + settings_dict["h5p"] + " ", item)
-            self.content.append(temp)
-
-        html_remover.close()
 
         words = list()
 

@@ -26,11 +26,10 @@ class Tag(BaseItem):
 
     def __init__(self, num_id: str, str_name: str, str_slug: str, str_type: str, str_desc: str, str_mark_start: str,
                  str_mark_end: str):
-        super().__init__(num_id, str_name, str_desc, str_slug)
+        super().__init__(num_id, str_name, str_desc, str_slug, str_type)
         # Here be all class vars
         self.filtered_name = list()  # Name without number, split by -
         # str_slug is not a real url. Contains char codes %##. Probably useless
-        self.type = str_type  # Item type (tag, category or nav menu item)
         self.description = list()  # Item description. Split on spaces and line break
         self.desc_small_list = list()
         self.desc_complete_list = list()

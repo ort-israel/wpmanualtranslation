@@ -30,12 +30,12 @@ Should I create a class for each post?
 urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.parse.html#urllib.parse.unquote Done
 
 ## For v0.3
-1. [X] Output should not include objects that don't need translation. Implemented - Check if working after no. 3.
+1. [x] Output should not include objects that don't need translation. Redo after type was added
 2. [x] Rest of the hardcoded settings ("ar")
 3. [x] Foreign should not add "empty" strings to complete and small list (aka "\r", "\r\n", "\t" "  ").
 4. [x] License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
 5. [ ] Add type to sql queries and to base item
-6. [ ] Convert pages and post to use inheritance.
+6. [x] Convert pages and post to use inheritance.
 7. [ ] Tags: Separate output for tags, categories, menu items and customized links
 
 ## For v0.4

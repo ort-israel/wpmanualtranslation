@@ -34,7 +34,8 @@ def post_csv_reader(str_file_name: str):
         # Create a post class for each line and push it to the return list
         for current_post in posts_reader:
             post_obj = Post(current_post[0], current_post[1], current_post[2], current_post[3],
-                            current_post[4], current_post[5], settings_dict["mark_start"], settings_dict["mark_end"])
+                            current_post[4], current_post[5], current_post[6], settings_dict["mark_start"],
+                            settings_dict["mark_end"])
 
             # Making sure that items that don't need translation won't be printed to output
             if len(post_obj.title_small_list) != 0 or \
