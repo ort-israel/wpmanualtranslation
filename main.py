@@ -25,21 +25,31 @@ def main():
     settings.read_settings()
 
     # Get list of posts
-    list_of_posts = csvparser.post_csv_reader(settings.settings_dict["posts_csv_name"])
+    list_of_posts_type = csvparser.post_csv_reader(settings.settings_dict["posts_csv_name"])
+    list_of_posts = outputcreator.sort_item_type(list_of_posts_type, settings.POST_TYPE)
+    list_of_pages = outputcreator.sort_item_type(list_of_posts_type, settings.PAGE_TYPE)
 
     # Get list of media (pictures an so on)
     list_of_media = csvparser.post_csv_reader(settings.settings_dict["media_csv_name"])
 
     # Get list of tags
-    list_of_tags = csvparser.tag_csv_reader()
+    list_of_tags_type = csvparser.tag_csv_reader()
+    list_of_tags = outputcreator.sort_item_type(list_of_tags_type, settings.TAG_TYPE)
+    list_of_categories = outputcreator.sort_item_type(list_of_tags_type, settings.CATEGORY_TYPE)
+    list_of_glossaries = outputcreator.sort_item_type(list_of_tags_type, settings.GLOSSARY_TYPE)
+    list_of_nav_menu = outputcreator.sort_item_type(list_of_tags_type, settings.NAV_MENU_TYPE)
 
     # Get list of menu items
     list_of_nav = csvparser.post_csv_reader(settings.settings_dict["nav_csv_name"])
 
     # Send items to the formatter
-    outputcreator.post_text_output(list_of_posts, settings.settings_dict["project"], "Posts and Pages")
+    outputcreator.post_text_output(list_of_posts, settings.settings_dict["project"], "Posts")
     outputcreator.post_text_output(list_of_media, settings.settings_dict["project"], "Media")
-    outputcreator.tag_text_output(list_of_tags, settings.settings_dict["project"])
+    outputcreator.post_text_output(list_of_pages, settings.settings_dict["project"], "Pages")
+    outputcreator.tag_text_output(list_of_tags, settings.settings_dict["project"], "Tags")
+    outputcreator.tag_text_output(list_of_categories, settings.settings_dict["project"], "Categories")
+    outputcreator.tag_text_output(list_of_glossaries, settings.settings_dict["project"], "Glossary Categories")
+    outputcreator.tag_text_output(list_of_nav_menu, settings.settings_dict["project"], "Nav Menus")
     outputcreator.nav_text_output(list_of_nav, settings.settings_dict["project"])
 
     # Print done

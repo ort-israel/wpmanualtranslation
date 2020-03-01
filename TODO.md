@@ -36,8 +36,8 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 4. [x] License: http://www.gnu.org/licenses/gpl-howto.html  (The license notices)
 5. [x] Add type to sql queries and to base item
 6. [x] Convert pages and post to use inheritance.
-7. [ ] Tags: Separate output for tags, categories, menu items and customized links
-8. [ ] Posts: Separate output for pages and posts
+7. [x] Tags: Separate output for tags, categories, menu items and customized links
+8. [x] Posts: Separate output for pages and posts
 
 ## For v0.4
 1. [ ] Posts: drop name marking for nav_menu_item
@@ -56,3 +56,5 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 
 ## For 0.6 
 1. [ ] Check that all required settings are in the file. If settings are missing or unknown setting were entered, use raise
+2. [ ] Lower the number of sql queries for 2: tag table and post table. Separate them using type member var (in output creator)
+3. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff

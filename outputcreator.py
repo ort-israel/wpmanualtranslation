@@ -16,9 +16,9 @@
 import os
 
 
-def tag_text_output(list_of_tags: list, folder_name: str, str_type="Tags"):
+def tag_text_output(list_of_tags: list, folder_name: str, str_type):
     """
-
+    Prints tag item type to file
     :param str_type: Subdirectory name. Should be tags
     :param list_of_tags: All the tags to print.
     :param folder_name: Project name
@@ -182,3 +182,19 @@ def return_to_root():
     """
     os.chdir("..")
     os.chdir("..")
+
+
+def sort_item_type(obj_list: list, str_type: str):
+    """
+    Creates a new list with str_type objects.
+    :param obj_list: list of item objects
+    :param str_type: Output needed type
+    :return: list of object containing only str_type item
+    """
+    new_list = list()
+
+    for current_obj in obj_list:
+        if current_obj.type == str_type:
+            new_list.append(current_obj)
+
+    return new_list
