@@ -40,15 +40,6 @@ def is_word_system_bad(str_word: str) -> bool:
     return False
 
 
-def word_breaker(str_sentence: str) -> list:
-    """
-    Breaks a list to words by spaces.
-    :param str_sentence: string to break
-    :return: list of words
-    """
-    return str_sentence.split(" ")
-
-
 def content_lang_marker(list_of_words: list, str_start_mark: str, str_end_mark: str, lang: str):
     """
     Checks if str_list contains lang words.

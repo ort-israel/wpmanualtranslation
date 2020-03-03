@@ -39,30 +39,22 @@ class Post(BaseItem):
         self.excerpt_small_list = list()
         self.excerpt_complete_list = list()
 
-        words = list()
-
         # Mark foreign words in content
-        for post_text in self.content:
-            words += foreign.word_breaker(post_text)
         self.content_complete_list, self.content_small_list = \
-            foreign.content_lang_marker(words, str_mark_start, str_mark_end, settings_dict["language"])
-
-        words = foreign.word_breaker(self.excerpt)
+            foreign.content_lang_marker(self.content.split(" "), str_mark_start, str_mark_end, settings_dict["language"])
 
         # Mark foreign words in excerpt
         self.excerpt_complete_list, self.excerpt_small_list = \
-            foreign.content_lang_marker(words, str_mark_start, str_mark_end, settings_dict["language"])
+            foreign.content_lang_marker(self.excerpt.split(" "), str_mark_start, str_mark_end, settings_dict["language"])
 
         # Mark foreign words in name unless it's nav menu item
         if self.type != NAV_MENU_ITEM_TYPE:
-            words = self.name.split("-")
             to_discard, self.name_small_list = \
-                foreign.content_lang_marker(words, str_mark_start, str_mark_end, settings_dict["language"])
+                foreign.content_lang_marker(self.name.split("-"), str_mark_start, str_mark_end, settings_dict["language"])
 
         # Mark foreign words in title
-        words = foreign.word_breaker(self.title)
         to_discard, self.title_small_list = \
-            foreign.content_lang_marker(words, str_mark_start, str_mark_end, settings_dict["language"])
+            foreign.content_lang_marker(self.title.split(" "), str_mark_start, str_mark_end, settings_dict["language"])
 
     def is_post_translation_needed(self):
         """

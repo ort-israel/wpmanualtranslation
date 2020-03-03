@@ -23,7 +23,7 @@ class MyHTMLParser(HTMLParser):
     def __init__(self):
         # In this list all the data will be saved
         super().__init__()
-        self.html_text = list()
+        self.html_text = ""
 
     def handle_data(self, data):
         """
@@ -31,7 +31,7 @@ class MyHTMLParser(HTMLParser):
         :param data: Non html string
         :return: Appends the non html data to html_text
         """
-        self.html_text.append(data)
+        self.html_text += data
 
     def handle_starttag(self, tag, attrs):
         """
@@ -41,7 +41,7 @@ class MyHTMLParser(HTMLParser):
         :return: Appends img tags to html_txt
         """
         if tag == "img":
-            self.html_text.append(" " + settings_dict["image"] + " ")
+            self.html_text += " " + settings_dict["image"] + " "
 
 
 def get_sections(str_content):

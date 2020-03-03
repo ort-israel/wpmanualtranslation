@@ -16,6 +16,7 @@
 from htmlparser import MyHTMLParser
 from re import sub
 from urllib.parse import unquote_plus as translate_url
+from settings import settings_dict
 
 
 class BaseItem:
@@ -28,7 +29,7 @@ class BaseItem:
         # parse url decoding
         self.name = translate_url(str_name)
         self.name_small_list = list()
-        self.content = list()
+        self.content = ""
         self.link = str_link  # Item link / slug
         self.type = str_type  # Item type
 
@@ -37,8 +38,6 @@ class BaseItem:
         html_remover.feed(str_content)
 
         # Strip remaining non HTML tags (such as [h5p id="#"])
-        for item in html_remover.html_text:
-            temp = sub(r" ?\[[^)]+\]", "****h5p_item****", item)
-            self.content.append(temp)
+        self.content = sub(r" ?\[[^)]+\]", " " + settings_dict["h5p"] + " ", html_remover.html_text)
 
         html_remover.close()
