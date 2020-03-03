@@ -14,3 +14,11 @@
 7. README organized. TODO stuff moved from README to TODO. 
 8. URL decode support for item name field.
 9. Rewrite of foreign detection functions for better detection. 
+
+# v0.3 
+1. Output no longer included items that don't need translation.
+2. Spaces and non printable (such as "\n" and "\r") no longer marked for translation
+3. Inheritance implemented for post item type.
+4. Added type var for items.
+5. Added GPL license notification.
+6. All of the hardcoded settings are now configurable. 
