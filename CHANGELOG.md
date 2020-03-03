@@ -16,7 +16,7 @@
 9. Rewrite of foreign detection functions for better detection. 
 
 # v0.3 
-1. Output no longer included items that don't need translation.
+1. Output no longer includes items that don't need translation.
 2. Spaces and non printable (such as "\n" and "\r") no longer marked for translation
 3. Inheritance implemented for post item type.
 4. Added type var for items.
