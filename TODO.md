@@ -43,10 +43,9 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 1. [x] Posts: drop name marking for nav_menu_item
 2. [x] Foreign requires string (due to python csv bypass) but htmlpalrser (due to my implementation) returns list.
     Refactor htmlparser 
-3. [ ] Print output to csv
-4. [ ] Sort by ABC of the original language (small list only)
-5. [ ] Complete list doesn't include non foreign string. Why? 
-6. [x] media.py is not used. Should it be used or just delete it? (Media and Post have the same fields)
+3. [ ] Print output to csv. By post title or tag name
+4. [x] Sort non content or excerpt fields by ABC of the original language (small list only)  
+5. [x] media.py is not used. Should it be used or just delete it? (Media and Post have the same fields)
 
 ## For 0.5
 1. [ ] h5p?
@@ -60,3 +59,8 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 2. [ ] Lower the number of sql queries for 2: tag table and post table. Separate them using type member var (in output creator)
 3. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff
 4. [ ] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready.
+
+## For 0.7
+1. [ ] GUI?
+2. [ ] Ability to ignore item (So they won't show in the output)
+3. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. The sentence building there, drops non foreign strings

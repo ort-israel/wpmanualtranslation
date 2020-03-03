@@ -60,6 +60,9 @@ __Don't add spaces before or after keys or values__
 * tag_csv_name: Tags and Categories file name
 * nav_csv_name: Nav menu items file name
 * project: Output folder name
+* language: Required language. Use 2 chars code from https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes, column 639-1
+* image: Custom string to replace image tags (for context)
+* h5p: Custom string to replace h5p tags (for context)
 
 #### How does the script mark foreign strings?
 * mark_start: prefix 
@@ -86,3 +89,6 @@ tag also accommodates categories and menu items).
 1. Python 3.8+
 2. PyEnchant (For better results). Requires the enchant package installed on your OS.
 3. guess_language: https://bitbucket.org/spirit/guess_language/src/default/
+
+## Known bugs
+1. Complete list is not so complete as it doesn't include non foreign strings. I'll fix it in the future. Low priority as it used only for debug. 
