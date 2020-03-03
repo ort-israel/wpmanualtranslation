@@ -53,10 +53,11 @@ class Post(BaseItem):
         self.excerpt_complete_list, self.excerpt_small_list = \
             foreign.content_lang_marker(words, str_mark_start, str_mark_end, settings_dict["language"])
 
-        # Mark foreign words in name
-        words = self.name.split("-")
-        to_discard, self.name_small_list = \
-            foreign.content_lang_marker(words, str_mark_start, str_mark_end, settings_dict["language"])
+        # Mark foreign words in name unless it's nav menu item
+        if self.type != NAV_MENU_ITEM_TYPE:
+            words = self.name.split("-")
+            to_discard, self.name_small_list = \
+                foreign.content_lang_marker(words, str_mark_start, str_mark_end, settings_dict["language"])
 
         # Mark foreign words in title
         words = foreign.word_breaker(self.title)
