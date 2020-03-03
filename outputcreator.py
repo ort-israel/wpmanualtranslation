@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 import os
+from settings import *
 
 
 def tag_text_output(list_of_tags: list, folder_name: str, str_type):
@@ -189,10 +190,19 @@ def sort_item_type(obj_list: list, str_type: str):
     :param str_type: Output needed type
     :return: list of object containing only str_type item
     """
-    new_list = list()
+    by_type_list = list()
+    sorted_list = list()
 
     for current_obj in obj_list:
         if current_obj.type == str_type:
-            new_list.append(current_obj)
+            by_type_list.append(current_obj)
 
-    return new_list
+    # Sort certain object list by ABC
+    if str_type == POST_TYPE or str_type == PAGE_TYPE or str_type == MEDIA_TYPE or str_type == NAV_MENU_ITEM_TYPE:
+        sorted_list = sorted(by_type_list, key=lambda post: post.title)
+    elif str_type == GLOSSARY_TYPE or str_type == NAV_MENU_TYPE or str_type == CATEGORY_TYPE or str_type == TAG_TYPE:
+        sorted_list = sorted(by_type_list, key=lambda tag: tag.name)
+    else:
+        raise Exception("Unknown sorting type: " + str_type)
+
+    return sorted_list
