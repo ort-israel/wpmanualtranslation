@@ -24,8 +24,7 @@ class Tag(BaseItem):
         Holds a single tag, category or nav menu item data
     """
 
-    def __init__(self, num_id: str, str_name: str, str_slug: str, str_type: str, str_desc: str, str_mark_start: str,
-                 str_mark_end: str):
+    def __init__(self, num_id: str, str_name: str, str_slug: str, str_type: str, str_desc: str):
         super().__init__(num_id, str_name, str_desc, str_slug, str_type)
         # Here be all class vars
         self.filtered_name = list()  # Name without number, split by -
@@ -45,11 +44,11 @@ class Tag(BaseItem):
 
         # Mark foreign words in descriptions
         self.desc_complete_list, self.desc_small_list = \
-            foreign.content_lang_marker(self.description, str_mark_start, str_mark_end, settings_dict["language"])
+            foreign.content_lang_marker(self.description)
 
         # Mark foreign words in the name
         self.name_complete_list, self.name_small_list = \
-            foreign.content_lang_marker(self.filtered_name, str_mark_start, str_mark_end, settings_dict["language"])
+            foreign.content_lang_marker(self.filtered_name)
 
     def is_tag_translation_needed(self):
         """

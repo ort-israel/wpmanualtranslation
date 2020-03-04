@@ -43,14 +43,14 @@ def main():
     list_of_nav = csvparser.post_csv_reader(settings.settings_dict["nav_csv_name"])
 
     # Send items to the formatter
-    outputcreator.post_text_output(list_of_posts, settings.settings_dict["project"], "Posts")
-    outputcreator.post_text_output(list_of_media, settings.settings_dict["project"], "Media")
-    outputcreator.post_text_output(list_of_pages, settings.settings_dict["project"], "Pages")
-    outputcreator.tag_text_output(list_of_tags, settings.settings_dict["project"], "Tags")
-    outputcreator.tag_text_output(list_of_categories, settings.settings_dict["project"], "Categories")
-    outputcreator.tag_text_output(list_of_glossaries, settings.settings_dict["project"], "Glossary Categories")
-    outputcreator.tag_text_output(list_of_nav_menu, settings.settings_dict["project"], "Nav Menus")
-    outputcreator.nav_text_output(list_of_nav, settings.settings_dict["project"])
+    outputcreator.post_text_output(list_of_posts, "Posts")
+    outputcreator.post_text_output(list_of_media, "Media")
+    outputcreator.post_text_output(list_of_pages, "Pages")
+    outputcreator.tag_text_output(list_of_tags, "Tags")
+    outputcreator.tag_text_output(list_of_categories, "Categories")
+    outputcreator.tag_text_output(list_of_glossaries, "Glossary Categories")
+    outputcreator.tag_text_output(list_of_nav_menu, "Nav Menus")
+    outputcreator.nav_text_output(list_of_nav)
 
     # Print done
     print(" <wpmanualtranslation>  Copyright (C) <2020>  <Shay Gover, ort-israel>")

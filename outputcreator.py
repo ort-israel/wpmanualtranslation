@@ -17,19 +17,18 @@ import os
 from settings import *
 
 
-def tag_text_output(list_of_tags: list, folder_name: str, str_type):
+def tag_text_output(list_of_tags: list, str_type):
     """
     Prints tag item type to file
     :param str_type: Subdirectory name. Should be tags
     :param list_of_tags: All the tags to print.
-    :param folder_name: Project name
     :return:
     """
     # Check the folder exists
     # Open the small list file for writing and clear it
-    folder_maker(folder_name)
+    folder_maker(settings_dict["project"])
     folder_maker(str_type)
-    small_file = open("00" + folder_name + "-" + str_type + ".txt", "w")
+    small_file = open("00" + settings_dict["project"] + "-" + str_type + ".txt", "w")
 
     # Iterate on tags, create files for the complete list and append for the small list
     for single_item in list_of_tags:
@@ -63,21 +62,20 @@ def tag_text_output(list_of_tags: list, folder_name: str, str_type):
     return_to_root()
 
 
-def post_text_output(list_of_items: list, folder_name: str, str_type: str):
+def post_text_output(list_of_items: list, str_type: str):
     """
     Prints the results to files.
     Small list goes into a single file with ********** separator between posts. File name is 00<folder_name>
     Complete list: Each post gets it's own file
     :param str_type: Type of items: Posts and pages or Media
     :param list_of_items: All the posts
-    :param folder_name: Folder to save the files in.
     :return:
     """
     # Check the folder exists
     # Open the small list file for writing and clear it
-    folder_maker(folder_name)
+    folder_maker(settings_dict["project"])
     folder_maker(str_type)
-    small_file = open("00" + folder_name + "-" + str_type + ".txt", "w")
+    small_file = open("00" + settings_dict["project"] + "-" + str_type + ".txt", "w")
 
     # Iterate on posts, create files for the complete list and append for the small list
     for single_item in list_of_items:
@@ -120,17 +118,16 @@ def post_text_output(list_of_items: list, folder_name: str, str_type: str):
     return_to_root()
 
 
-def nav_text_output(list_of_items: list, folder_name: str):
+def nav_text_output(list_of_items: list):
     """
     Prints the menu items to a single file (Only item name, title and id are relevant)
     :param list_of_items: list of menu item. Type is post class
-    :param folder_name: Project name
     :return: Prints everything to a file called nav_menu_items.txt
     """
     # Check the folder exists
     # Open the small list file for writing and clear it
-    folder_maker(folder_name)
-    small_file = open("00" + folder_name + "-" + "nav_menu_items" + ".txt", "w")
+    folder_maker(settings_dict["project"])
+    small_file = open("00" + settings_dict["project"] + "-" + "nav_menu_items" + ".txt", "w")
 
     # Iterate on posts, create files for the complete list and append for the small list
     for single_item in list_of_items:

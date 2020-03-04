@@ -34,8 +34,7 @@ def post_csv_reader(str_file_name: str):
         # Create a post class for each line and push it to the return list
         for current_post in posts_reader:
             post_obj = Post(current_post[0], current_post[1], current_post[2], current_post[3],
-                            current_post[4], current_post[5], current_post[6], settings_dict["mark_start"],
-                            settings_dict["mark_end"])
+                            current_post[4], current_post[5], current_post[6])
 
             # Making sure that items that don't need translation won't be printed to output
             if post_obj.is_post_translation_needed():
@@ -60,7 +59,7 @@ def tag_csv_reader():
         # num_id: str, str_name: str, str_slug: str, str_type: str, str_desc: str
         for current_tag in tags_reader:
             tag_obj = Tag(current_tag[0], current_tag[1], current_tag[2], current_tag[3],
-                          current_tag[4], settings_dict["mark_start"], settings_dict["mark_end"])
+                          current_tag[4])
 
             # Making sure that items that don't need translation won't be printed to output
             if tag_obj.is_tag_translation_needed():
