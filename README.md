@@ -73,6 +73,39 @@ With text output ‡‡‡‡ will produce:
 ‡‡‡‡ Foreign ‡‡‡‡ ‡‡‡‡ text ‡‡‡‡
 ```
 
+## Language Support
+Theoretically speaking, wpmanualtranslation support all languages. 
+However, it depends on guess_language which has it own supported languages plus those enchant supports.
+
+__Due to wpmanualtranslation implementation, you'll need to add languages manually to setting.py's lang_to_system function:__
+lang_to_system function allows wpmanualtranslation to build sentences written in one language. 
+Why? Because guess_language returns better results the longer the string is. 
+What do I need to do?
+1. Prepare one char that belongs to the new site target language's writing system: https://simple.wikipedia.org/wiki/Writing_system
+2. Open python interactive shell
+3. Run ```python from unicodedata import name as writing_system```
+4. Change <char> to the one you prepared in 1: ```python writing_system("<char>").split()[0]``` (DO NOT remove the enclosing "").
+5. Run that line in the interactive shell.
+6. Copy the output and add a new elif for it or expand existing (Use the language code from config.txt)
+
+#### Example for Spanish 
+1. I chose "ñ".
+2. To open a shell on my system, I opened a Terminal and entered "python3" and Enter.
+3. Pasted the line. 
+4. My cmd is: writing_system("ñ").split()[0]
+5. Run it and got 'LATIN'
+6. When I open settings.py, I see that's LATIN is already there:
+```python
+    elif str_lang == "en" or str_lang == "fr":
+        return "LATIN"
+```
+7. All I need to do is to add another "or" for "es" (Spanish lang code):
+```python
+    elif str_lang == "en" or str_lang == "fr" or str_lang == "es":
+        return "LATIN"
+```
+8. That's it, now wpmanualtranslation supports Spanish.
+
 ## Project structure
 1. settings.py: Reads the settings from config.txt
 2. csvparser.py: Parses the csv files and creates item lists (Calls the proper class constructor).
