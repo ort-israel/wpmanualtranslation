@@ -22,3 +22,11 @@
 4. Added type var for items.
 5. Added GPL license notification.
 6. All of the hardcoded settings are now configurable. 
+
+# v0.4
+1. Nav menu item name field is no longer scanned for foreign language. 
+It appears that it's no longer possible to edit this field in Wordpress GUI so why scan it?
+2. htmlparser returns a string instated of list (Simplifying the code)
+3. Outpust is now sorted by ABC. For Post and Pages: Title is used.
+4. Removed media.py file as it's not used.
+5. Settings are no longer passed as function parameters as the settings dictionary is imported by every file.   
