@@ -43,24 +43,27 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 1. [x] Posts: drop name marking for nav_menu_item
 2. [x] Foreign requires string (due to python csv bypass) but htmlpalrser (due to my implementation) returns list.
     Refactor htmlparser 
-3. [ ] Print output to csv. By post title or tag name
-4. [x] Sort non content or excerpt fields by ABC of the original language (small list only)  
-5. [x] media.py is not used. Should it be used or just delete it? (Media and Post have the same fields)
+3. [x] Sort non content or excerpt fields by ABC of the original language (small list only)  
+4. [x] media.py is not used. Should it be used or just delete it? (Media and Post have the same fields). Deleted
+5. [x] Use settings dict where needed instead of passing vars to functions
 
 ## For 0.5
-1. [ ] h5p?
-2. [ ] Print output to html (Maybe sphinx and restructured text can help?)
-3. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary
-4. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form
-5. [ ] Use settings dict where needed instead of passing vars to functions
+1. [ ] Check that all required settings are in the file. If settings are missing or unknown setting were entered, use raise
+2. [ ] Brainstorm and get feedback for output formatting
+3. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary.
+4. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
+5. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. The sentence building there, drops non foreign strings
 
 ## For 0.6 
-1. [ ] Check that all required settings are in the file. If settings are missing or unknown setting were entered, use raise
-2. [ ] Lower the number of sql queries for 2: tag table and post table. Separate them using type member var (in output creator)
-3. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff
-4. [ ] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready.
+1. [ ] Lower the number of sql queries to 2: tag table and post table. Separate them using type member var (in output creator)
+2. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff
+3. [ ] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready.
+4. [ ] Print output to csv. By post title or tag name
+__OR__
+5. [ ] Print output to html (Maybe sphinx and restructured text can help?)
+One of them is enough, as long as it looks OK and has
 
 ## For 0.7
 1. [ ] GUI?
 2. [ ] Ability to ignore item (So they won't show in the output)
-3. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. The sentence building there, drops non foreign strings
+3. [ ] h5p?
