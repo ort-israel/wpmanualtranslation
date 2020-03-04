@@ -49,21 +49,25 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 
 ## For 0.5
 1. [ ] Check that all required settings are in the file. If settings are missing or unknown setting were entered, use raise
+Complete the init of setting_dict in the beginning of settings.py and than add if to make sure no "Def" remain. 
 2. [ ] Brainstorm and get feedback for output formatting
-3. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary.
-4. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
-5. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. The sentence building there, drops non foreign strings
+3. [ ] Add plugin support.
+4. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary. Does glossary-cat from tags table belong to it?
+If so, add it to this plugin
+5. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
 
 ## For 0.6 
 1. [ ] Lower the number of sql queries to 2: tag table and post table. Separate them using type member var (in output creator)
 2. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff
 3. [ ] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready.
-4. [ ] Print output to csv. By post title or tag name
+4. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. 
+Sentence building drops non foreign strings. Maybe add a complete list in the first if (is_word_system_bad) 
+5. [ ] Print output to csv. By post title or tag name
 __OR__
-5. [ ] Print output to html (Maybe sphinx and restructured text can help?)
+6. [ ] Print output to html (Maybe sphinx and restructured text can help?)
 One of them is enough, as long as it looks OK and has
 
 ## For 0.7
 1. [ ] GUI?
-2. [ ] Ability to ignore item (So they won't show in the output)
+2. [ ] Ability to ignore items (So they won't show in the output)
 3. [ ] h5p?

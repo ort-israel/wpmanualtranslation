@@ -14,9 +14,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 
-# Holds all settings
-settings_dict = dict()
-
 # Item types constants
 POST_TYPE = "post"
 PAGE_TYPE = "page"
@@ -26,6 +23,10 @@ CATEGORY_TYPE = "category"
 NAV_MENU_TYPE = "nav_menu"
 GLOSSARY_TYPE = "glossary-cat"
 NAV_MENU_ITEM_TYPE = "nav_menu_item"
+
+# Holds all settings <=
+settings_dict = {"posts_csv_name": "Def",
+                 "media_csv_name": "Def"}
 
 
 def lang_to_system(str_lang: str) -> str:
@@ -72,3 +73,5 @@ def read_settings():
 
     # Set writing system
     settings_dict["writing_system"] = lang_to_system(settings_dict["language"])
+
+    # Make sure that all required settings were loaded
