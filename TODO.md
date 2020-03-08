@@ -50,8 +50,9 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 ## For 0.5
 1. [ ] Check that all required settings are in the file. If settings are missing or unknown setting were entered, use raise
 Complete the init of setting_dict in the beginning of settings.py and than add if to make sure no "Def" remain. 
-2. [ ] Brainstorm and get feedback for output formatting
-3. [ ] Add plugin support.
+2. [ ] Brainstorm and get feedback for output formatting: Table. Add link and id. 
+Use pyexcel? Don't use csv to xls/ods if I can't set the delimiters (content has a lot of , or tabs)
+3. [ ] Add plugin support: https://alysivji.github.io/simple-plugin-system.html
 4. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary. Does glossary-cat from tags table belong to it?
 If so, add it to this plugin
 5. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
