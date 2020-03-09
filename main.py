@@ -29,9 +29,7 @@ def main():
     list_of_posts_type = csvparser.post_csv_reader(settings_dict["posts_csv_name"])
     list_of_posts = outputcreator.sort_item_type(list_of_posts_type, POST_TYPE)
     list_of_pages = outputcreator.sort_item_type(list_of_posts_type, PAGE_TYPE)
-
-    # Get list of media (pictures an so on)
-    list_of_media = outputcreator.sort_item_type(csvparser.post_csv_reader(settings_dict["media_csv_name"]), MEDIA_TYPE)
+    list_of_media = outputcreator.sort_item_type(list_of_posts_type, MEDIA_TYPE)
 
     # Get list of tags
     list_of_tags_type = csvparser.tag_csv_reader()
@@ -41,7 +39,7 @@ def main():
     list_of_nav_menu = outputcreator.sort_item_type(list_of_tags_type, NAV_MENU_TYPE)
 
     # Get list of menu items
-    list_of_nav = outputcreator.sort_item_type(csvparser.post_csv_reader(settings_dict["nav_csv_name"]), NAV_MENU_ITEM_TYPE)
+    list_of_nav_items = outputcreator.sort_item_type(list_of_posts_type, NAV_MENU_ITEM_TYPE)
 
     # Send items to the formatter
     outputcreator.post_text_output(list_of_posts, "Posts")
@@ -51,11 +49,11 @@ def main():
     outputcreator.tag_text_output(list_of_categories, "Categories")
     outputcreator.tag_text_output(list_of_glossaries, "Glossary Categories")
     outputcreator.tag_text_output(list_of_nav_menu, "Nav Menus")
-    outputcreator.nav_text_output(list_of_nav)
+    outputcreator.nav_text_output(list_of_nav_items)
 
     # Load plugins
     if settings_dict["plugins"]:
-        load_plugins()
+        load_plugins(list_of_posts_type, list_of_tags_type)
 
     # Print done
     print(" <wpmanualtranslation>  Copyright (C) <2020>  <Shay Gover, ort-israel>")

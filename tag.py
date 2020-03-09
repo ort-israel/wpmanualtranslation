@@ -57,16 +57,17 @@ class Tag(BaseItem):
         :return: True if translation needed, False otherwise
         """
         if self.type == TAG_TYPE:
-            if len(self.name_small_list) > 0 or len(self.desc_small_list) > 0:
+            if self.name_small_list or self.desc_small_list:
                 return True
         elif self.type == CATEGORY_TYPE:
-            if len(self.name_small_list) > 0 or len(self.desc_small_list) > 0:
+            if self.name_small_list or self.desc_small_list:
                 return True
         elif self.type == NAV_MENU_TYPE:
-            if len(self.name_small_list) > 0 or len(self.desc_small_list) > 0:
+            if self.name_small_list or self.desc_small_list:
                 return True
         elif self.type == GLOSSARY_TYPE:
-            if len(self.name_small_list) > 0 or len(self.desc_small_list) > 0:
+            if self.name_small_list or self.desc_small_list:
                 return True
-        else:
-            raise Exception("Unknown tag type: " + self.type)
+        # No longer needed as I don't care about other types. Plugins should take care of them
+        # else:
+        #    raise Exception("Unknown tag type: " + self.type)

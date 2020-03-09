@@ -26,9 +26,7 @@ NAV_MENU_ITEM_TYPE = "nav_menu_item"
 
 # Holds all settings <=
 settings_dict = {"posts_csv_name": "",
-                 "media_csv_name": "",
                  "tag_csv_name": "",
-                 "nav_csv_name": "",
                  "mark_start": "",
                  "mark_end": "",
                  "project": "",
@@ -59,9 +57,7 @@ def read_settings():
     """Read settings from the config file and populates settings_dict
     List of possible settings:
     posts_csv_name: post and pages csv file name
-    media_csv_name: media csv file name
     tag_csv_name: Tags and categories file name
-    nav_csv_name: Nav menu items file name
     mark_start: Mark start
     mark_end: Mark end
     project: Project name. Will be used as output folder name and small file name
@@ -85,7 +81,6 @@ def read_settings():
     settings_dict["writing_system"] = lang_to_system(settings_dict["language"])
 
     # Make sure that all required settings were loaded
-    if ((not settings_dict["media_csv_name"]) or (not settings_dict["posts_csv_name"]) or
-            (not settings_dict["tag_csv_name"]) or (not settings_dict["nav_csv_name"]) or
+    if ((not settings_dict["posts_csv_name"]) or (not settings_dict["tag_csv_name"]) or
             (not settings_dict["language"]) or (not settings_dict["project"])):
         raise Exception("Important settings are not set. Please edit the config file")

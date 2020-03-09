@@ -63,23 +63,20 @@ class Post(BaseItem):
         :return: True if translation needed, False otherwise
         """
         if self.type == PAGE_TYPE:
-            if len(self.excerpt_small_list) > 0 or len(self.content_small_list) > 0 or \
-                   len(self.name_small_list) > 0 or len(self.title_small_list) > 0:
+            if self.excerpt_small_list or self.content_small_list or self.name_small_list or self.title_small_list:
                 return True
         elif self.type == POST_TYPE:
-            if len(self.excerpt_small_list) > 0 or len(self.content_small_list) > 0 or \
-                    len(self.name_small_list) > 0 or len(self.title_small_list) > 0:
+            if self.excerpt_small_list or self.content_small_list or self.name_small_list or self.title_small_list:
                 return True
         elif self.type == MEDIA_TYPE:
-            if len(self.excerpt_small_list) > 0 or len(self.content_small_list) > 0 or \
-                    len(self.name_small_list) > 0 or len(self.title_small_list) > 0:
+            if self.excerpt_small_list or self.content_small_list or self.name_small_list or self.title_small_list:
                 return True
         elif self.type == NAV_MENU_ITEM_TYPE:
             # For nav menu items, name is useless
-            if len(self.excerpt_small_list) > 0 or len(self.content_small_list) > 0 or \
-                    len(self.title_small_list) > 0:
+            if self.excerpt_small_list or self.content_small_list or self.title_small_list:
                 return True
-        else:
-            raise Exception("Unknown post type: " + self.type)
+        # No longer needed as I don't care about other types. Plugins should take care of them
+        # else:
+        # raise Exception("Unknown post type: " + self.type)
 
         return False
