@@ -13,36 +13,35 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>."""
-import settings
+from settings import *
 import csvparser
 import outputcreator
+from plugins import load_plugins
 
 
 def main():
     """Main func"""
 
     # Read settings
-    settings.read_settings()
+    read_settings()
 
     # Get list of posts
-    list_of_posts_type = csvparser.post_csv_reader(settings.settings_dict["posts_csv_name"])
-    list_of_posts = outputcreator.sort_item_type(list_of_posts_type, settings.POST_TYPE)
-    list_of_pages = outputcreator.sort_item_type(list_of_posts_type, settings.PAGE_TYPE)
+    list_of_posts_type = csvparser.post_csv_reader(settings_dict["posts_csv_name"])
+    list_of_posts = outputcreator.sort_item_type(list_of_posts_type, POST_TYPE)
+    list_of_pages = outputcreator.sort_item_type(list_of_posts_type, PAGE_TYPE)
 
     # Get list of media (pictures an so on)
-    list_of_media = outputcreator.sort_item_type(csvparser.post_csv_reader(settings.settings_dict["media_csv_name"]),
-                                                 settings.MEDIA_TYPE)
+    list_of_media = outputcreator.sort_item_type(csvparser.post_csv_reader(settings_dict["media_csv_name"]), MEDIA_TYPE)
 
     # Get list of tags
     list_of_tags_type = csvparser.tag_csv_reader()
-    list_of_tags = outputcreator.sort_item_type(list_of_tags_type, settings.TAG_TYPE)
-    list_of_categories = outputcreator.sort_item_type(list_of_tags_type, settings.CATEGORY_TYPE)
-    list_of_glossaries = outputcreator.sort_item_type(list_of_tags_type, settings.GLOSSARY_TYPE)
-    list_of_nav_menu = outputcreator.sort_item_type(list_of_tags_type, settings.NAV_MENU_TYPE)
+    list_of_tags = outputcreator.sort_item_type(list_of_tags_type, TAG_TYPE)
+    list_of_categories = outputcreator.sort_item_type(list_of_tags_type, CATEGORY_TYPE)
+    list_of_glossaries = outputcreator.sort_item_type(list_of_tags_type, GLOSSARY_TYPE)
+    list_of_nav_menu = outputcreator.sort_item_type(list_of_tags_type, NAV_MENU_TYPE)
 
     # Get list of menu items
-    list_of_nav = outputcreator.sort_item_type(csvparser.post_csv_reader(settings.settings_dict["nav_csv_name"]),
-                                               settings.NAV_MENU_ITEM_TYPE)
+    list_of_nav = outputcreator.sort_item_type(csvparser.post_csv_reader(settings_dict["nav_csv_name"]), NAV_MENU_ITEM_TYPE)
 
     # Send items to the formatter
     outputcreator.post_text_output(list_of_posts, "Posts")
@@ -54,13 +53,17 @@ def main():
     outputcreator.tag_text_output(list_of_nav_menu, "Nav Menus")
     outputcreator.nav_text_output(list_of_nav)
 
+    # Load plugins
+    if settings_dict["plugins"]:
+        load_plugins()
+
     # Print done
     print(" <wpmanualtranslation>  Copyright (C) <2020>  <Shay Gover, ort-israel>")
     print("This program comes with ABSOLUTELY NO WARRANTY; ")
     print("This is free software, and you are welcome to redistribute ")
     print("it under certain conditions; For more details check the repo:")
     print("https://github.com/ort-israel/wpmanualtranslation")
-    print(settings.settings_dict["project"] + " is Done!")
+    print(settings_dict["project"] + " is Done!")
 
 
 if __name__ == "__main__":
