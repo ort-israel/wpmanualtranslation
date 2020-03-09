@@ -11,18 +11,10 @@ __Use-cases__:
 
 ## SQL Queries
 When saving the csv file use utf-8 encoding, † as line delimiter and ‡ as field delimiter. 
-### Pages and Posts
+### Pages, Posts, Media and Nav Menu Items:
 ```sql
-SELECT ID,post_content,post_title,post_excerpt,post_name,guid,post_type
-FROM wp_posts 
-WHERE (post_type = "page" OR post_type = "post") AND post_status = "publish";
-```
-
-### Media
-```sql
-SELECT ID,post_content,post_title,post_excerpt,post_name,guid,post_type
-FROM wp_posts 
-WHERE post_type = "attachment" ;
+SELECT ID,post_content,post_title,post_excerpt,post_name,guid,post_type,post_status
+FROM wp_posts
 ```
 
 ### Tags and Categories
@@ -30,17 +22,6 @@ WHERE post_type = "attachment" ;
 SELECT wp_terms.term_id,wp_terms.name,wp_terms.slug,wp_term_taxonomy.taxonomy,wp_term_taxonomy.description
 FROM wp_terms
 INNER JOIN wp_term_taxonomy ON (wp_term_taxonomy.term_id = wp_terms.term_id)
-WHERE wp_term_taxonomy.taxonomy = "category" OR 
-      wp_term_taxonomy.taxonomy = "post_tag" OR 
-      wp_term_taxonomy.taxonomy = "nav_menu" OR 
-      wp_term_taxonomy.taxonomy = "glossary-cat";
-```
-
-### Menu items
-```sql
-SELECT ID,post_content,post_title,post_excerpt,post_name,guid,post_type
-FROM wp_posts
-WHERE post_type="nav_menu_item";
 ```
 
 ## Python csv delimiter workaround
@@ -52,17 +33,18 @@ The script will add a workaround to any csv file in the folder (not recursive).
 ## Config.txt
 __Format:__ options:=value
 
-__Don't add spaces before or after keys or values__
+__Don't add spaces before or after or inside keys or values__
+
+__Don't use colons ":" or equal signs "=" inside keys or values__
 
 ### Available options
 * posts_csv_name: Posts and Pages file name
-* media_csv_name: Media file name
 * tag_csv_name: Tags and Categories file name
-* nav_csv_name: Nav menu items file name
 * project: Output folder name
 * language: Required language. Use 2 chars code from https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes, column 639-1
 * image: Custom string to replace image tags (for context)
 * h5p: Custom string to replace h5p tags (for context)
+* plugins: comma separated list of plugins.
 
 #### How does the script mark foreign strings?
 * mark_start: prefix 
@@ -124,4 +106,5 @@ tag also accommodates categories and menu items).
 3. guess_language: https://bitbucket.org/spirit/guess_language/src/default/
 
 ## Known bugs
-1. Complete list is not so complete as it doesn't include non foreign strings. I'll fix it in the future. Low priority as it used only for debug. 
+1. Complete list is not so complete as it doesn't include non foreign strings. I'll fix it in the future. 
+Low priority as it used only for debug. 
