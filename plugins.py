@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>."""
 
-from importlib.util import spec_from_file_location, module_from_spec
+from importlib import import_module
 from settings import settings_dict
 from os import chdir
 
@@ -33,9 +33,11 @@ If you inherit you'll have to create a new output function for it.
 """
 
 
-def load_plugins():
+def load_plugins(list_of_posts_type: list, list_of_tags_type: list):
     """
     load all the plugins
+    :param list_of_tags_type: Holds all tag items
+    :param list_of_posts_type: Holds all post items
     :return: None
     """
     lst_plugins = settings_dict["plugins"].split(",")
@@ -44,9 +46,10 @@ def load_plugins():
     chdir("Plugins")
 
     for plug in lst_plugins:
-        spec = spec_from_file_location(plug, plug)
-        module = module_from_spec(spec)
-        spec.loader.exec_module(module)
+        module = import_module(plug)
+
+        # Make sure it's the right way to init a new package
+        module.__init__(settings_dict, list_of_posts_type, list_of_tags_type)
 
     # Back to the main dir
     chdir("..")
