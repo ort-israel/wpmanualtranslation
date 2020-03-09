@@ -48,25 +48,26 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 5. [x] Use settings dict where needed instead of passing vars to functions
 
 ## For 0.5
-1. [ ] Check that all required settings are in the file. If settings are missing or unknown setting were entered, use raise
-Complete the init of setting_dict in the beginning of settings.py and than add if to make sure no "Def" remain. 
-2. [ ] Brainstorm and get feedback for output formatting: Table. Add link and id. 
+1. [x] Check that all required settings are in the file. If settings are missing or unknown setting were entered, use raise
+Complete the init of setting_dict in the beginning of settings.py and than add if to make sure no "Def" remain.
+2. [x] Lower the number of sql queries to 2: tag table and post table. Required for plugins.
+3. [ ] Brainstorm and get feedback for output formatting: Table. Add link and id. 
 Use pyexcel? Don't use csv to xls/ods if I can't set the delimiters (content has a lot of , or tabs)
-3. [ ] Add plugin support: https://alysivji.github.io/simple-plugin-system.html
-4. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary. Does glossary-cat from tags table belong to it?
+4. [x] Add plugin support: https://alysivji.github.io/simple-plugin-system.html and last one here: 
+https://stackoverflow.com/questions/301134/how-to-import-a-module-given-its-name-as-string
+5. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary. Does glossary-cat from tags table belong to it?
 If so, add it to this plugin
-5. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
+6. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
 
 ## For 0.6 
-1. [ ] Lower the number of sql queries to 2: tag table and post table. Separate them using type member var (in output creator)
-2. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff
-3. [ ] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready.
-4. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. 
+1. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff
+2. [ ] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready.
+3. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. 
 Sentence building drops non foreign strings. Maybe add a complete list in the first if (is_word_system_bad) 
-5. [ ] Print output to csv. By post title or tag name
+4. [ ] Print output to csv. By post title or tag name
 __OR__
-6. [ ] Print output to html (Maybe sphinx and restructured text can help?)
-One of them is enough, as long as it looks OK and has
+5. [ ] Print output to html (Maybe sphinx and restructured text can help?)
+One of them is enough, as long as it looks OK and approved by everyone
 
 ## For 0.7
 1. [ ] GUI?
