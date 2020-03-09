@@ -51,6 +51,8 @@ def load_plugins(list_of_posts_type: list, list_of_tags_type: list):
         # Make sure it's the right way to init a new package
         module.__init__(settings_dict, list_of_posts_type, list_of_tags_type)
 
+        print(plug + " plugin executed")
+
     # Back to the main dir
     chdir("..")
 
