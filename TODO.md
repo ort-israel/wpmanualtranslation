@@ -55,7 +55,7 @@ Complete the init of setting_dict in the beginning of settings.py and than add i
 Use pyexcel? Don't use csv to xls/ods if I can't set the delimiters (content has a lot of , or tabs)
 4. [x] Add plugin support: https://alysivji.github.io/simple-plugin-system.html and last one here: 
 https://stackoverflow.com/questions/301134/how-to-import-a-module-given-its-name-as-string
-5. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary. Does glossary-cat from tags table belong to it?
+5. [x] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary. Does glossary-cat from tags table belong to it?
 If so, add it to this plugin. Post type: glossary
 6. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
 
@@ -73,3 +73,6 @@ One of them is enough, as long as it looks OK and approved by everyone
 1. [ ] GUI?
 2. [ ] Ability to ignore items (So they won't show in the output)
 3. [ ] h5p?
+4. [ ] Absolute paths in output creator
+5. [ ] Change to package architecture for better pythonist code in plugins
+6. [ ] Add function that deletes settings["project"] folder if it already exists in the beginning of exec.
