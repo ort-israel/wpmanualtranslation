@@ -65,9 +65,6 @@ class Tag(BaseItem):
         elif self.type == NAV_MENU_TYPE:
             if self.name_small_list or self.desc_small_list:
                 return True
-        elif self.type == GLOSSARY_TYPE:
-            if self.name_small_list or self.desc_small_list:
-                return True
         # No longer needed as I don't care about other types. Plugins should take care of them
         # else:
         #    raise Exception("Unknown tag type: " + self.type)

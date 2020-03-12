@@ -56,7 +56,7 @@ Use pyexcel? Don't use csv to xls/ods if I can't set the delimiters (content has
 4. [x] Add plugin support: https://alysivji.github.io/simple-plugin-system.html and last one here: 
 https://stackoverflow.com/questions/301134/how-to-import-a-module-given-its-name-as-string
 5. [ ] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary. Does glossary-cat from tags table belong to it?
-If so, add it to this plugin
+If so, add it to this plugin. Post type: glossary
 6. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
 
 ## For 0.6 

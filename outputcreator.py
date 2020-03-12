@@ -197,7 +197,7 @@ def sort_item_type(obj_list: list, str_type: str):
     # Sort certain object list by ABC
     if str_type == POST_TYPE or str_type == PAGE_TYPE or str_type == MEDIA_TYPE or str_type == NAV_MENU_ITEM_TYPE:
         sorted_list = sorted(by_type_list, key=lambda post: post.title)
-    elif str_type == GLOSSARY_TYPE or str_type == NAV_MENU_TYPE or str_type == CATEGORY_TYPE or str_type == TAG_TYPE:
+    elif str_type == NAV_MENU_TYPE or str_type == CATEGORY_TYPE or str_type == TAG_TYPE:
         sorted_list = sorted(by_type_list, key=lambda tag: tag.name)
     else:
         raise Exception("Unknown sorting type: " + str_type)

@@ -35,7 +35,6 @@ def main():
     list_of_tags_type = csvparser.tag_csv_reader()
     list_of_tags = outputcreator.sort_item_type(list_of_tags_type, TAG_TYPE)
     list_of_categories = outputcreator.sort_item_type(list_of_tags_type, CATEGORY_TYPE)
-    list_of_glossaries = outputcreator.sort_item_type(list_of_tags_type, GLOSSARY_TYPE)
     list_of_nav_menu = outputcreator.sort_item_type(list_of_tags_type, NAV_MENU_TYPE)
 
     # Get list of menu items
@@ -47,7 +46,6 @@ def main():
     outputcreator.post_text_output(list_of_pages, "Pages")
     outputcreator.tag_text_output(list_of_tags, "Tags")
     outputcreator.tag_text_output(list_of_categories, "Categories")
-    outputcreator.tag_text_output(list_of_glossaries, "Glossary Categories")
     outputcreator.tag_text_output(list_of_nav_menu, "Nav Menus")
     outputcreator.nav_text_output(list_of_nav_items)
 

@@ -21,7 +21,6 @@ MEDIA_TYPE = "attachment"
 TAG_TYPE = "post_tag"
 CATEGORY_TYPE = "category"
 NAV_MENU_TYPE = "nav_menu"
-GLOSSARY_TYPE = "glossary-cat"
 NAV_MENU_ITEM_TYPE = "nav_menu_item"
 
 # Holds all settings <=
