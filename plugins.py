@@ -1,4 +1,4 @@
-"""    <Simple tool to manually find string that need to be translated in a wordpress for cases where you chose to duplicate the site>
+""" <Simple tool to manually find string that need to be translated in a wordpress for cases where you chose to duplicate the site>
     Copyright (C) <2020>  <Shay Gover, ort-israel>
 
     This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,8 @@
 
 from importlib import import_module
 from settings import settings_dict
-from os import chdir
+from os import getcwd, chdir
+from sys import path
 
 """
 How plugins work?
@@ -40,19 +41,21 @@ def load_plugins(list_of_posts_type: list, list_of_tags_type: list):
     :param list_of_posts_type: Holds all post items
     :return: None
     """
+    # TODO: Not Sure why but somewhere before this point, the path changes to Pycharam Projects.
+    # Should probably work with absolute paths in output creator, possibly read the path from config.txt
+    chdir("wpmanualtranslation")
+
     lst_plugins = settings_dict["plugins"].split(",")
 
-    # Changing dir to plugins
-    chdir("Plugins")
+    # Appending Plugins to path
+    path.append(getcwd() + "/Plugins/")
 
     for plug in lst_plugins:
         module = import_module(plug)
 
         # Make sure it's the right way to init a new package
-        module.__init__(settings_dict, list_of_posts_type, list_of_tags_type)
+        call_main_func = getattr(module, "main_plug")
+        call_main_func(list_of_posts_type, list_of_tags_type)
 
         print(plug + " plugin executed")
-
-    # Back to the main dir
-    chdir("..")
 

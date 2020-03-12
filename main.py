@@ -22,6 +22,13 @@ from plugins import load_plugins
 def main():
     """Main func"""
 
+    # Print license
+    print(" <wpmanualtranslation>  Copyright (C) <2020>  <Shay Gover, ort-israel>")
+    print("This program comes with ABSOLUTELY NO WARRANTY; ")
+    print("This is free software, and you are welcome to redistribute ")
+    print("it under certain conditions; For more details check the repo:")
+    print("https://github.com/ort-israel/wpmanualtranslation")
+
     # Read settings
     read_settings()
 
@@ -54,11 +61,6 @@ def main():
         load_plugins(list_of_posts_type, list_of_tags_type)
 
     # Print done
-    print(" <wpmanualtranslation>  Copyright (C) <2020>  <Shay Gover, ort-israel>")
-    print("This program comes with ABSOLUTELY NO WARRANTY; ")
-    print("This is free software, and you are welcome to redistribute ")
-    print("it under certain conditions; For more details check the repo:")
-    print("https://github.com/ort-israel/wpmanualtranslation")
     print(settings_dict["project"] + " is Done!")
 
 
