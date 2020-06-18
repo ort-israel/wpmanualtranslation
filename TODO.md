@@ -1,17 +1,3 @@
-# wpmanualtranslation
-
-## Project structure
-1. db.py: Gets the post data from the db. It then convert each table to array. Or maybe use CSV and load it to arrays?|
-https://github.com/mkleehammer/pyodbc
-2. html.py: Breaks each post to segments by div and p tags (or whatever else in there) **** >>>>>> Check the code
-Should I create a class for each post? 
-3. foreign.py: Checks each post segment and tag their language. 
-4. export2csv.py: export all segments to csv
-
-** Line delimiter is † **  
-
-** Field separator is ‡ ** 
-
 ## For v0.1
 0. [x] Read Settings file. settings.py. V function was written
 1. [x] Get posts from csv. csv.py for parsing csv, post.py - post class - for each post. post.py is done V
@@ -51,23 +37,22 @@ urllib.parse.unquote("String") from https://docs.python.org/3/library/urllib.par
 1. [x] Check that all required settings are in the file. If settings are missing or unknown setting were entered, use raise
 Complete the init of setting_dict in the beginning of settings.py and than add if to make sure no "Def" remain.
 2. [x] Lower the number of sql queries to 2: tag table and post table. Required for plugins.
-3. [ ] Brainstorm and get feedback for output formatting: Table. Add link and id. 
+3. [x] Brainstorm and get feedback for output formatting: Table. Add link and id. 
 Use pyexcel? Don't use csv to xls/ods if I can't set the delimiters (content has a lot of , or tabs)
 4. [x] Add plugin support: https://alysivji.github.io/simple-plugin-system.html and last one here: 
 https://stackoverflow.com/questions/301134/how-to-import-a-module-given-its-name-as-string
 5. [x] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary. Does glossary-cat from tags table belong to it?
 If so, add it to this plugin. Post type: glossary
 6. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
+7. [ ] post.is_post_translation_needed(): Was cretaed to speedup the program but causes plugins to get empty lists (Because those item types are declared
+inside the plugin and not in the main program). Need to find a solution and re-test the plugins
 
 ## For 0.6 
 1. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff
 2. [ ] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready.
 3. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. 
 Sentence building drops non foreign strings. Maybe add a complete list in the first if (is_word_system_bad) 
-4. [ ] Print output to csv. By post title or tag name
-__OR__
-5. [ ] Print output to html (Maybe sphinx and restructured text can help?)
-One of them is enough, as long as it looks OK and approved by everyone
+4. [ ] Print output to word as table. By post title or tag name
 
 ## For 0.7
 1. [ ] GUI?
