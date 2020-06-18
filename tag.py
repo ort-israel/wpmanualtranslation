@@ -36,8 +36,7 @@ class Tag(BaseItem):
         self.name_complete_list = list()
 
         # Split content by spaces
-        for str_item in self.content:
-            self.description.extend(str_item.split(" "))
+        self.description.extend(self.content.split(" "))
         # Filter item name
         # https://docs.python.org/3/library/re.html
         self.filtered_name = sub(r"[0-9]+?", "", self.name).split("-")
