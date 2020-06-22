@@ -75,8 +75,12 @@ class Post(BaseItem):
             # For nav menu items, name is useless
             if self.excerpt_small_list or self.content_small_list or self.title_small_list:
                 return True
-        # No longer needed as I don't care about other types. Plugins should take care of them
-        # else:
-        # raise Exception("Unknown post type: " + self.type)
+        elif self.type == CF7_TYPE:
+            # Contact Form 7
+            if self.content_small_list:
+                return True
+        elif self.type == CM_TOOLTIP_GLOSSARY_TYPE:
+            if self.excerpt_small_list or self.content_small_list or self.name_small_list or self.title_small_list:
+                return True
 
         return False

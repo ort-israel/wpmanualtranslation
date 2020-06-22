@@ -23,7 +23,11 @@ CATEGORY_TYPE = "category"
 NAV_MENU_TYPE = "nav_menu"
 NAV_MENU_ITEM_TYPE = "nav_menu_item"
 
-# Holds all settings <=
+# WP plugins types
+CM_TOOLTIP_GLOSSARY_TYPE = "glossary"  # CM Tooltip Glossary
+CF7_TYPE = "wpcf7_contact_form"  # Contact Form 7
+
+# Holds all settings TODO: Refactor this check
 settings_dict = {"posts_csv_name": "",
                  "tag_csv_name": "",
                  "mark_start": "",

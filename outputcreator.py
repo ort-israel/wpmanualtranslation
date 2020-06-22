@@ -146,8 +146,8 @@ def nav_text_output(list_of_items: list):
     # Close the small file
     small_file.close()
 
-    # Return to root folder
-    return_to_root()
+    # Return to root folder TODO: Use return to root when it'll use absolute paths
+    os.chdir("..")
 
 
 def folder_maker(folder_name: str):
@@ -174,6 +174,7 @@ def folder_maker(folder_name: str):
 def return_to_root():
     """
     Return pwd to root path
+    TODO: Use absolute paths
     :return: none
     """
     os.chdir("..")
@@ -195,7 +196,8 @@ def sort_item_type(obj_list: list, str_type: str):
             by_type_list.append(current_obj)
 
     # Sort certain object list by ABC
-    if str_type == POST_TYPE or str_type == PAGE_TYPE or str_type == MEDIA_TYPE or str_type == NAV_MENU_ITEM_TYPE:
+    if (str_type == POST_TYPE or str_type == PAGE_TYPE or str_type == MEDIA_TYPE or str_type == NAV_MENU_ITEM_TYPE or
+            str_type == CM_TOOLTIP_GLOSSARY_TYPE or str_type == CF7_TYPE):
         sorted_list = sorted(by_type_list, key=lambda post: post.title)
     elif str_type == NAV_MENU_TYPE or str_type == CATEGORY_TYPE or str_type == TAG_TYPE:
         sorted_list = sorted(by_type_list, key=lambda tag: tag.name)

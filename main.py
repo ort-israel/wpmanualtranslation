@@ -37,6 +37,7 @@ def main():
     list_of_posts = outputcreator.sort_item_type(list_of_posts_type, POST_TYPE)
     list_of_pages = outputcreator.sort_item_type(list_of_posts_type, PAGE_TYPE)
     list_of_media = outputcreator.sort_item_type(list_of_posts_type, MEDIA_TYPE)
+    list_of_nav_items = outputcreator.sort_item_type(list_of_posts_type, NAV_MENU_ITEM_TYPE)
 
     # Get list of tags
     list_of_tags_type = csvparser.tag_csv_reader()
@@ -44,8 +45,11 @@ def main():
     list_of_categories = outputcreator.sort_item_type(list_of_tags_type, CATEGORY_TYPE)
     list_of_nav_menu = outputcreator.sort_item_type(list_of_tags_type, NAV_MENU_TYPE)
 
-    # Get list of menu items
-    list_of_nav_items = outputcreator.sort_item_type(list_of_posts_type, NAV_MENU_ITEM_TYPE)
+    # Plugin types - tags
+
+    # Plugin types - posts
+    list_of_cf7 = outputcreator.sort_item_type(list_of_posts_type, CF7_TYPE)
+    list_of_gloss = outputcreator.sort_item_type(list_of_posts_type, CM_TOOLTIP_GLOSSARY_TYPE)
 
     # Send items to the formatter
     outputcreator.post_text_output(list_of_posts, "Posts")
@@ -56,9 +60,16 @@ def main():
     outputcreator.tag_text_output(list_of_nav_menu, "Nav Menus")
     outputcreator.nav_text_output(list_of_nav_items)
 
+    # WP Plugins
+    outputcreator.post_text_output(list_of_gloss, "CM Tooltip Glossary")
+    outputcreator.post_text_output(list_of_cf7, "Contact Form 7")
+
+    """
+    Plugins made my life harder. Therefore counter productive
     # Load plugins
     if settings_dict["plugins"]:
         load_plugins(list_of_posts_type, list_of_tags_type)
+    """
 
     # Print done
     print(settings_dict["project"] + " is Done!")
