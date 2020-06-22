@@ -48,7 +48,8 @@ If so, add it to this plugin. Post type: glossary
 inside the plugin and not in the main program). Need to find a solution and re-test the plugins
 8. [x] Plugins made my life harder. Reverting to no plugin architecture.
 
-## For 0.6 
+## For 0.6
+Bugs: Media folder is empty. Why? Maybe the change in the query? Yes. Fixed it in Heidi. Now update the readme and the files.
 1. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff
 2. [ ] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready.
 3. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. 
