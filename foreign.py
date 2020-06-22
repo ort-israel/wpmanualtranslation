@@ -66,16 +66,16 @@ def content_lang_marker(list_of_words: list):
         elif len(str_sentence) > 0:
             sentence_list.append(str_sentence)
             str_sentence = ""
-    else:
-        # Append the last sentence to the list unless it's already there. Add only if it's not empty
-        if str_sentence.isprintable() and len(str_sentence) > 0:
-            try:
-                str_last = sentence_list[-1]
 
-                if str_last != str_sentence:
-                    sentence_list.append(str_sentence)
-            except IndexError:
+    # Append the last sentence to the list unless it's already there. Add only if it's not empty
+    if len(str_sentence) > 0:
+        try:
+            str_last = sentence_list[-1]
+
+            if str_last != str_sentence:
                 sentence_list.append(str_sentence)
+        except IndexError:
+            sentence_list.append(str_sentence)
 
     for str_cell in sentence_list:
         # If foreign add marking.
