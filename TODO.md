@@ -43,10 +43,10 @@ Use pyexcel? Don't use csv to xls/ods if I can't set the delimiters (content has
 https://stackoverflow.com/questions/301134/how-to-import-a-module-given-its-name-as-string
 5. [x] WP Plugin: CM Tooltip Glossary. Saved under wp_posts as type glossary. Does glossary-cat from tags table belong to it?
 If so, add it to this plugin. Post type: glossary
-6. [ ] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
-7. [ ] post.is_post_translation_needed(): Was created to speedup the program but causes plugins to get empty lists (Because those item types are declared
+6. [x] WP Plugin: Contact Forms with contact form 7. Saved under wp_posts as type wpcf7_contact_form.
+7. [x] post.is_post_translation_needed(): Was created to speedup the program but causes plugins to get empty lists (Because those item types are declared
 inside the plugin and not in the main program). Need to find a solution and re-test the plugins
-8. [ ] Plugins made my life harder. Reverting to no plugin architecture.
+8. [x] Plugins made my life harder. Reverting to no plugin architecture.
 
 ## For 0.6 
 1. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff

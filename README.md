@@ -15,7 +15,7 @@ When saving the csv file use utf-8 encoding, † as line delimiter and ‡ as fi
 ```sql
 SELECT ID,post_content,post_title,post_excerpt,post_name,guid,post_type,post_status
 FROM wp_posts 
-WHERE post_type != "revision"
+WHERE post_type != "revision" AND post_status = "publish"
 ```
 
 ### Tags and Categories
@@ -45,7 +45,6 @@ __Don't use colons ":" or equal signs "=" inside keys or values__
 * language: Required language. Use 2 chars code from https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes, column 639-1
 * image: Custom string to replace image tags (for context)
 * h5p: Custom string to replace h5p tags (for context)
-* plugins: comma separated list of plugins.
 
 #### How does the script mark foreign strings?
 * mark_start: prefix 
@@ -88,6 +87,14 @@ What do I need to do?
         return "LATIN"
 ```
 8. That's it, now wpmanualtranslation supports Spanish.
+
+## Wordpress plugin support
+1. CM Tooltip Glossary
+2. Contact Form 7
+
+To add support for new plugins (Only needed if they use new post or tag type):
+
+Just search for a supported plugin in the code (like CM_TOOLTIP_GLOSSARY_TYPE) and yours.
 
 ## Project structure
 1. settings.py: Reads the settings from config.txt

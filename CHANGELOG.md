@@ -29,4 +29,9 @@ It appears that it's no longer possible to edit this field in Wordpress GUI so w
 2. htmlparser returns a string instated of list (Simplifying the code)
 3. Outpust is now sorted by ABC. For Post and Pages: Title is used.
 4. Removed media.py file as it's not used.
-5. Settings are no longer passed as function parameters as the settings dictionary is imported by every file.   
+5. Settings are no longer passed as function parameters as the settings dictionary is imported by every file.
+
+# v0.5
+1. Lowered number of SQL queries to 2.
+2. Added support for WP plugins: CM Tooltip Glossary and Contact Form 7.
+3. Bug fixes.
