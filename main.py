@@ -16,7 +16,6 @@
 from settings import *
 import csvparser
 import outputcreator
-from plugins import load_plugins
 
 
 def main():
