@@ -15,7 +15,7 @@ When saving the csv file use utf-8 encoding, † as line delimiter and ‡ as fi
 ```sql
 SELECT ID,post_content,post_title,post_excerpt,post_name,guid,post_type,post_status
 FROM wp_posts 
-WHERE post_type != "revision" AND post_status = "publish"
+WHERE post_type != "revision" AND post_status != "auto-draft"
 ```
 
 ### Tags and Categories
@@ -52,7 +52,7 @@ __Don't use colons ":" or equal signs "=" inside keys or values__
 
 With text output ‡‡‡‡ will produce:
 ```text
-‡‡‡‡ Foreign ‡‡‡‡ ‡‡‡‡ text ‡‡‡‡
+‡‡‡‡ Foreign text ‡‡‡‡
 ```
 
 ## Language Support

@@ -35,3 +35,6 @@ It appears that it's no longer possible to edit this field in Wordpress GUI so w
 1. Lowered number of SQL queries to 2.
 2. Added support for WP plugins: CM Tooltip Glossary and Contact Form 7.
 3. Bug fixes.
+
+# v0.6
+1. Bug fix: Media was omitted from the SQL query.
