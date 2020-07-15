@@ -27,16 +27,7 @@ NAV_MENU_ITEM_TYPE = "nav_menu_item"
 CM_TOOLTIP_GLOSSARY_TYPE = "glossary"  # CM Tooltip Glossary
 CF7_TYPE = "wpcf7_contact_form"  # Contact Form 7
 
-# Holds all settings TODO: Refactor this check
-settings_dict = {"posts_csv_name": "",
-                 "tag_csv_name": "",
-                 "mark_start": "",
-                 "mark_end": "",
-                 "project": "",
-                 "language": "",
-                 "image": "",
-                 "h5p": "",
-                 "plugins": ""}
+settings_dict = dict()
 
 
 def lang_to_system(str_lang: str) -> str:
@@ -84,6 +75,21 @@ def read_settings():
     settings_dict["writing_system"] = lang_to_system(settings_dict["language"])
 
     # Make sure that all required settings were loaded
-    if ((not settings_dict["posts_csv_name"]) or (not settings_dict["tag_csv_name"]) or
-            (not settings_dict["language"]) or (not settings_dict["project"])):
-        raise Exception("Important settings are not set. Please edit the config file")
+    if (not ("posts_csv_name" in settings_dict.keys()) or not ("tag_csv_name" in settings_dict.keys())
+            or not ("language" in settings_dict.keys())):
+        raise Exception("""Missing settings in config file.
+                        Can't continue.
+                        Aborting""")
+
+    # Enter default setting
+    if not ("mark_start" in settings_dict.keys()):
+        settings_dict["mark_start"] = "****"
+
+    if not ("mark_end" in settings_dict.keys()):
+        settings_dict["mark_end"] = "****"
+
+    if not ("image" in settings_dict.keys()):
+        settings_dict["image"] = "****Image****"
+
+    if not ("h5p" in settings_dict.keys()):
+        settings_dict["h5p"] = "****h5p****"
