@@ -50,11 +50,11 @@ inside the plugin and not in the main program). Need to find a solution and re-t
 
 ## For 0.6
 Bugs: [x] Media folder is empty. Why? Maybe the change in the query? Yes. Fixed it in Heidi. Now update the readme and the files.
-1. [ ] In output creator: Merge nav menu items and tags. Use if for specific stuff
-2. [ ] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready.
+1. [x] In output creator: Merge nav menu items and tags. Use if for specific stuff. Aborted. Not needed
+2. [x] Rewrite content_lang_marker so it'll get a string instead of list. post, tag and baseitem are ready. Aborted. Counter productive.
 3. [ ] Complete list doesn't include non foreign string. Need to split content_lang_marker. 
 Sentence building drops non foreign strings. Maybe add a complete list in the first if (is_word_system_bad)
-4. [ ] Strip lines of non printable chars before printing as a table.
+4. [x] Strip lines of non printable chars before printing as a table.
 5. [ ] Print output to word as table. By post title or tag name
 
 ## For 0.7
