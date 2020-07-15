@@ -16,6 +16,7 @@
 from guess_language import guess_language
 from settings import settings_dict
 from unicodedata import name as writing_system
+from re import sub, split
 
 
 def is_word_system_bad(str_word: str) -> bool:
@@ -60,22 +61,34 @@ def content_lang_marker(list_of_words: list):
         str_text = str_cell.replace("ř", "\r")
         str_text = str_text.replace("ň", "\n")
 
+        # Remove duplicate spaces
+        str_sentence = sub(' {2,}', ' ', str_sentence)
+
+        # Remove duplicate commas, dots and trailing or leading \n, \r or \t
+        str_sentence = sub('\,{2,}', '.', str_sentence)  # sequences of dots
+        str_sentence = sub('\.{2,}', ',', str_sentence)
+        str_sentence = " ".join(split('\t+', str_sentence))  # Trailing and leading \n, \t and so on
+        str_sentence = " ".join(split('\n+', str_sentence))
+        str_sentence = " ".join(split('\r+', str_sentence))
+        str_sentence = str_sentence.replace(" . ", "")  # Dots in the middle of nowhere
+        str_sentence = str_sentence.replace(" , ", "")
+
         # Check if word needs translation, add it only if it's not empty
         if is_word_system_bad(str_text):
             str_sentence += str_text + " "
-        elif len(str_sentence) > 0:
-            sentence_list.append(str_sentence)
+        elif len(str_sentence.strip()) > 0:
+            sentence_list.append(str_sentence.strip())
             str_sentence = ""
 
     # Append the last sentence to the list unless it's already there. Add only if it's not empty
-    if len(str_sentence) > 0:
+    if len(str_sentence.strip()) > 0:
         try:
             str_last = sentence_list[-1]
 
             if str_last != str_sentence:
-                sentence_list.append(str_sentence)
+                sentence_list.append(str_sentence.strip())
         except IndexError:
-            sentence_list.append(str_sentence)
+            sentence_list.append(str_sentence.strip())
 
     for str_cell in sentence_list:
         # If foreign add marking.
